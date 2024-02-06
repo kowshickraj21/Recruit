@@ -5,8 +5,10 @@
 @layer base {
     :root {
       --color-secondry: rgba(58, 128, 247, 1);
+      --color-grey: rgba(233, 234, 231, 1);
+      --color-innerText: rgba(133, 135, 147, 1);
     }
 }
 body{
-    font-family: 'Playfair Display';
+    font-family: 'Poppins';
 }

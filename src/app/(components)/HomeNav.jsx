@@ -1,27 +1,26 @@
 "use client";
 import React from 'react'
-import ProfileButton from '../profileButton';
+import ProfileButton from './profileButton';
 import Link from 'next/link';
-import { setUser } from '@/lib/features/userSlice';
-import { useDispatch } from 'react-redux';
-
+import { FaSearch } from "react-icons/fa";
+import { FiMessageSquare } from "react-icons/fi";
+import { IoCartOutline } from "react-icons/io5";
 
 const HomeNav = (props) => {
-  const dispatch = useDispatch();
-  dispatch(setUser({
-    name:props.name,
-    email:props.email,
-    picture:props.picture
-  }));
+  
   return (
-      <nav className='py-4 flex flex-row items-center justify-between bg-transparent sticky top-0'>
+      <nav className='py-5 flex flex-row items-center justify-between bg-transparent sticky top-0'>
         <div>Logo</div>
-      <ul className="pl-10 list-none flex flex-row justify-evenly">
-        <li className='px-10'><Link href='/login'>Find Jobs</Link></li>
-        <li className='px-10'>Blog</li>
-        <li className='px-10'>Contact</li>
+      <form className=" w-3/5 flex flex-row border rounded-md">
+        <input type="text" className=' p-3 w-11/12 placeholder: text-innerText pl-7' placeholder='Search for Freelancers'/>
+        <button className='w-1/12 px-7 border-l-2 bg-grey'><FaSearch /></button>
+      </form>
+      <ul className="pl-10 list-none flex flex-row">
+        <li className='px-3 p-3'><FiMessageSquare className='w-6 h-6'/></li>
+        <li className='px-3 p-2'><IoCartOutline className='w-7 h-7'/></li>
+        <li><ProfileButton picture={props.picture}/></li>
       </ul>
-      <ProfileButton />
+      
     </nav>
   )
 }

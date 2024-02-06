@@ -1,17 +1,38 @@
 import React from 'react';
 import Image from 'next/image';
-const page = () => {
+import fetchUser from '../api/Users/setDetails';
+import Link from 'next/link';
+import CreateId from '../(components)/CreateId';
+import IdForm from '../(components)/IdForm';
+
+const page = async () => {
+  const user = await fetchUser()
+  const Id = user.userId
   return (
     <div>
-        <div>
-            <div className='picture'>
-              <Image src={'https://lh3.googleusercontent.com/a/ACg8ocKtjLeLnPxctEQHcn1SLOj-g5Onewy1zKdmHWv1WWAi0jo=s96-c'} width={500} height={500} alt="Profile" className='rounded-full' />
-            </div>
-            <div>
-              <h2>Name:</h2>
-              <p>Email:</p>
-            </div>
+      <div className='w-full h-28'>
+        <Link href={"/"}>Logo</Link>
+      </div>
+        <div className='flex flex-column align-middle justify-center'>
+          <div className=' p-10 border m-10 w-1/4'>
+            <Image src={user.picture} width={200} height={200} alt="Profile" className='rounded-full m-auto' />
+          </div>
+          <div className=' p-10 border m-10 ml-20 w-1/2 text-center'>
+            <h2 className='text-2xl p-3'>{user.name}</h2>
+            <p className='p-2'>{user.email}</p>
+            {Id? <p>{Id}</p> : <CreateId><IdForm></IdForm></CreateId>}
+          </div>
         </div>
+        {Id? 
+        <div className='flex flex-column align-middle justify-center'>
+        <div className=' p-10 border m-10 w-1/4'>
+          
+        </div>
+        <div className=' p-10 border m-10 ml-20 w-1/2 text-center'>
+          <h2 className='text-2xl p-3'>Gigs</h2>
+        </div>
+      </div>: null}
+        
     </div>
   )
 }
