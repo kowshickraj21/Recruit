@@ -8,7 +8,7 @@ const ProfileButton = (props) => {
   return (
     <div className='mr-10 px-5 p-1'>
       <div onClick={() => setOpen(!open)} className='w-10 h-10 rounded-full bg-black'>
-        <Image src={props.picture} width={500} height={500} alt="Profile" className='rounded-full' />
+        <Image src={props.picture} width={50} height={50} alt="Profile" className='rounded-full  h-auto w-auto' />
       </div>
       {(open)?<ul className='absolute w-32 p-2 top-20 right-10 bg-white border shadow-md'>
       <li className='p-1'><Link href='/profile'>View Profile</Link></li>

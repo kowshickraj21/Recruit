@@ -16,6 +16,7 @@ module.exports = {
         'secondry':'var(--color-secondry)',
         'grey':'var(--color-grey)',
         'innerText':'var(--color-innerText)',
+        'gigText':'var(--color-gigText)',
       },
     },
 

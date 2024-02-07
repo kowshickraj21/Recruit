@@ -7,8 +7,37 @@
       --color-secondry: rgba(58, 128, 247, 1);
       --color-grey: rgba(233, 234, 231, 1);
       --color-innerText: rgba(133, 135, 147, 1);
+      --color-gigText:rgba(64, 65, 69, 1);
     }
 }
 body{
     font-family: 'Poppins';
+}
+
+
+.arrow{
+  transform: rotate(-45deg);
+  cursor: pointer;
+  display: block;
+  width: 1vw;
+  height: 1vw;
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+}
+.active{
+  
+  animation: animate 1s infinite;
+}
+@keyframes animate {
+  0% {
+      opacity: 0;
+      transform: rotate(-45deg) translate(-20px, -20px);
+  }
+  50% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+      transform: rotate(-45deg) translate(10px, 10px);
+  }
 }
