@@ -1,52 +1,39 @@
-import React from 'react'
-import { connectMongoDB } from '@/models/mongodb'
-import Gigs from '@/models/gigs'
-import fetchUser from '../api/Users/setDetails';
+"use client"
+import React,{useRef,useState} from 'react'
+import Link from 'next/link';
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { uploadGigs } from '../api/gigs/uploadGigs';
 
-const page = async () => {
-  const user = await fetchUser()
-  const handleSubmit = async (formData) => {
-    "use server"
-    const image = formData.get('image')
-    const imageReader = image.stream().getReader();
-  const imageDataU8 = [];
-  while (true){
-    const {done,value} = await imageReader.read();
-    if (done) break;
-    imageDataU8.push(...value);
+const page = () => {
+  const form = useRef(null)
+  const [warning, setWarning] = useState("")
+  const handleSubmit = (formData) => {
+    uploadGigs(formData)
+    form.current?.reset()
+    setWarning("\"Gig created Succesfully\"")
   }
-  const imageBinary = Buffer.from(imageDataU8,'binary');
-    const gig = {
-      title: formData.get('title'),
-      description: formData.get('description'),
-      hourly: formData.get('hourly'),
-      projectly: formData.get('projectly'),
-      image: imageBinary,
-      email: user.email,
-    }
-       await connectMongoDB();
-       await Gigs.create(gig)
-  }
-
   return (
-    <div>
-      <button className='text-lg font-medium'>Back to Home</button>
-      <div>
-      <h1 className='text-2xl font-bold m-10'>About your Gig</h1>
-      <form action={handleSubmit} className='m-10'>
-        <label htmlFor="title">Gig Title:</label>
-        <input type="text" name="title" className='border' id="title" />
-        <label htmlFor="description">Gig Description:</label>
-        <input type="text" name="description" className='border' id="description" />
-        <label htmlFor="hourly">Hourly Rate:</label>
-        <input type="number" name="hourly" className='border' id="hourly" />
-        <div>
-          <h2>Basic Package:</h2>
-          <label htmlFor="package1-info">Description</label>
-          <input type="text" name='package1-info'/>
-        </div>
-        <input type="file" accept='image/*' name='image' />
-        <button type="submit">Create Gig</button>
+    <div className='bg-grey h-full w-full p-10'>
+      <Link href='/' className='text-lg font-medium flex mb-10'><FaArrowLeftLong className='m-1'/> Back to Home</Link>
+      <div className='w-2/3 m-auto bg-white'>
+      <h1 className='text-2xl font-bold p-7'>About your Gig</h1>
+      <form action={handleSubmit} className='flex flex-col p-10 pt-0' ref={form}>
+        <label htmlFor="title" className='my-5'>Gig Title:</label>
+        <input type="text" name="title" id="title" maxLength='100' className='border rounded-xl h-10 pl-5' placeholder='Enter your Gig Title' required/>
+        <label htmlFor="description" className='my-5'>Gig Description:</label>
+        <textarea name="description" id="description" cols="50" rows="7" maxLength='1000' className='border p-5 rounded-2xl' placeholder='Tell us about what are you going to do' required/>
+        <label htmlFor="hourly" className='my-5'>Hourly Rate:</label>
+        <p>$<input type="number" name="hourly" id="hourly" className='border rounded-xl h-10 mx-5 w-44 p-2' placeholder='Hourly Rate' required/>/hr</p>
+        <label htmlFor="hourly" className='my-5'>Price:</label>
+        <p>$<input type="number" name="projectly" id="projectly" className='border rounded-xl h-10 mx-5 w-44 p-2' placeholder='Price' required/>/Gig Order</p>
+        <label htmlFor="hourly" className='my-5'>Fast Delivery:</label>
+        <p>$<input type="number" name="fastDelivery" id="fastDelivery" className='border rounded-xl h-10 mx-5 w-44 p-2' placeholder='Fast Delivery' required/></p>
+        <label htmlFor="image" className='m-auto my-10 border h-40'>
+          <p className='absolute -z-10'>custom upload</p>
+        <input type="file" accept='image/*' name='image' className='p-16 opacity-100 cursor-pointer' required/>
+        </label>
+        <p className='text-green-400 font-semibold text-center'>{warning}</p>
+        <button type="submit" className='border-2 border-black font-semibold h-10 w-1/2 m-auto hover:bg-black hover:text-white active:bg-white active:text-black'>Create Gig</button>
       </form>
     </div>  
     </div>

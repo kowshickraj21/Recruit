@@ -9,11 +9,17 @@
       --color-innerText: rgba(133, 135, 147, 1);
       --color-gigText:rgba(64, 65, 69, 1);
     }
+    
 }
 body{
     font-family: 'Poppins';
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .arrow{
   transform: rotate(-45deg);
