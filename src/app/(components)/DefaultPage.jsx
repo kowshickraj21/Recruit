@@ -1,6 +1,6 @@
 import React from 'react'
 import Nav from './Nav';
-import banner from '@/images/banner.png';
+import banner from '@/assets/banner.png';
 import Image from 'next/image';
 
 const DefaultPage = () => {

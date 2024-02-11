@@ -5,7 +5,15 @@ const userSchema = new Schema({
     email: String,
     password: String,
     picture: String,
-    UserId: String,
+    userId: String,
+    DOB: Date,
+    likedIn: String,
+    gitHub: String,
+    country: String,
+    state: String,
+    city: String,
+    category: String,
+    tags: Array,
 },{
     timestamps: true,
 })
