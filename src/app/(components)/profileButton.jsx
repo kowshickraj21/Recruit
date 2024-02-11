@@ -10,8 +10,11 @@ const ProfileButton = (props) => {
       <div onClick={() => setOpen(!open)} className='w-10 h-10 rounded-full bg-black'>
         <Image src={props.picture} width={50} height={50} alt="Profile" className='rounded-full  h-auto w-auto' />
       </div>
-      {(open)?<ul className='absolute w-32 p-2 top-20 right-10 bg-white border shadow-md'>
-      <li className='p-1'><Link href='/profile'>View Profile</Link></li>
+      {(open)?<ul className='absolute w-36 p-2 top-20 right-10 bg-white border shadow-md'>
+      {(props.id)?
+      <li className='p-1'><Link href='/profile'>View Profile</Link></li>:
+      <li className='p-1'><Link href='/createProfile'>Create Profile</Link></li>
+      }
       <li className='p-1'><Link href='/createGigs'>Add Gigs</Link></li>
       <li className='p-1'><Link href='/viewGigs'>View Gigs</Link></li>
       <li className=' p-1 pt-5'><Link href='/api/auth/signout?callbackUrl=/'>log Out</Link></li>

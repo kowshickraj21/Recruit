@@ -8,7 +8,6 @@ import { FiMessageSquare } from "react-icons/fi";
 import { IoCartOutline } from "react-icons/io5";
 
 const HomeNav = (props) => {
-  
   return (
       <nav className='py-5 flex flex-row items-center justify-between bg-white sticky top-0 z-10'>
         <Link href="/" className='ml-5 pr-5'>logo</Link>
@@ -20,7 +19,7 @@ const HomeNav = (props) => {
       <li className='px-3 p-3'><IoSunny className='w-6 h-6'/></li>
         <li className='px-3 p-3'><FiMessageSquare className='w-6 h-6'/></li>
         <li className='px-3 p-2'><IoCartOutline className='w-7 h-7'/></li>
-        <li><ProfileButton picture={props.picture}/></li>
+        <li><ProfileButton picture={props.picture} id={props.id}/></li>
       </ul>
       
     </nav>

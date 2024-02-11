@@ -12,7 +12,7 @@ const HomePage = async () => {
     const gigs = await Gigs.find();
   return (
     <div>
-      <HomeNav picture={user.picture} postition="sticky"/>
+      <HomeNav picture={user.picture} id={user.UserId} postition="sticky"/>
       <h2 className='p-10 text-2xl font-bold'>Hi <span className='text-secondry'>{user.name}</span>, Check These Out!</h2>
       <section className='flex flex-row flex-wrap'>
       {gigs.map(async (Data) => {
