@@ -11,7 +11,6 @@ const userSchema = new Schema({
     gitHub: String,
     country: String,
     state: String,
-    city: String,
     category: String,
     tags: Array,
 },{

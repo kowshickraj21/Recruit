@@ -4,6 +4,8 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import Link from 'next/link';
 import { checkAvailable } from '../api/Users/checkId';
 import { categories } from '@/assets/categories';
+import Location from './location';
+import createProfile from '../api/Users/createProfile';
 
 
 const page = () => {
@@ -14,8 +16,8 @@ const page = () => {
 
   const HandleEnter = (key) => {
     if(key === "Enter" && count < 10){
-      if(input != ""){
-      setTags([...tags,input ]);
+      if(input !== ""){
+      setTags([input,...tags]);
       setInput("");
       setCount(count+1);
       }
@@ -34,32 +36,59 @@ const page = () => {
     const exists = await checkAvailable(Id.toLowerCase())
     setAvailable(exists)
    }
+
+   const handleSubmit = (formData) => {
+    formData.preventDefault();
+    const id = formData.target[0].value.toLowerCase();
+    console.log(id)
+    createProfile({
+      userId:id,
+      DOB:formData.target[1].value,
+      linkedIn:formData.target[2].value,
+      gitHub:formData.target[3].value,
+      category:formData.target[4].value,
+      country:formData.target[5].value,
+      state:formData.target[6].value,
+      tags:tags
+    })
+   }
   return (
-    <div className='bg-grey w-full h-svh p-10'>
+    <div className='bg-grey w-full h-full p-10'>
       <Link href='/' className='text-lg font-medium flex mb-10'><FaArrowLeftLong className='m-1'/> Back to Home</Link>
-      <div className='w-2/3 bg-white h-72 m-auto p-10'>
+      <div className='relative w-2/3 bg-white m-auto p-10 mb-10 pb-32'>
+      <form className='p-10' onSubmit={handleSubmit}>
         <div>
         <label htmlFor="Id">UserId</label>
-        <input type="text" name='Id' id='Id' onChange={(e) => handleId(e.target.value)}/>
+        <input type="text" name='Id' id='Id' onChange={(e) => handleId(e.target.value)} className='border-2 m-5'/>
         {(available)?<p>User Id Already Exists</p>:null}
         </div>
+        <div className='m-5'>
         <label htmlFor="dob">Date-Of-Birth:</label>
-        <input type="date" name='dob' id='dob' />
-        <label htmlFor="linkedin">LinkedIn Id:</label>
-        <input type="text" name='linkedin' id='linkedin' className='border-2'/>
-        <label htmlFor="github">GitHub Id:</label>
-        <input type="text" name='github' id='github' />
-        <select name="categories" id="categories">
+        <input type="date" name='dob' id='dob' className='m-5'/>
+        </div>
+        <div className='m-5'>
+        <label htmlFor="linkedin">LinkedIn Link:</label>
+        <input type="text" name='linkedin' id='linkedin' className='border-2 m-5'/>
+        </div>
+        <div className='m-5'>
+        <label htmlFor="github">GitHub Link:</label>
+        <input type="text" name='github' id='github' className='border-2 m-5' />
+        </div>
+        <select name="categories" id="categories" className='m-10'>
         <option value="">--Please choose an option--</option>
         {categories.map((category,index) => {
         return(
           <option key={index} value={category}>{category}</option>
         )})}
         </select>
-        <div className='w-1/2'>
+    <Location />
+    <button type='submit' className='absolute bottom-10 '>Submit</button>
+      </form>
+
+      <div className='w-1/2'>
           <p>Tags:</p>
         <div className='border-2 w-full min-h-20 flex flex-row flex-wrap flex-initial'>
-          <ul className='flex flex-row flex-wrap'>
+          <ul className='flex flex-row flex-wrap bg-white'>
           {tags.map((tag, index) => (
               <li key={index} className='p-1 m-1 h-9 bg-gray-100 border border-gray-200 rounded-md'>{tag}<button name={index} className='border bg-gray-200 m-1 text-sm rounded-full w-5 h-5' onClick={(e) => handleClose(e.target.name)}>X</button></li>
             ))} 
@@ -70,8 +99,8 @@ const page = () => {
         <p className='p-2'>{count}/10 Tags</p>
         <button onClick={removeAll} className='p-2 border'>Remove All</button>
         </div>
+        </div>
     </div>
-      </div>
     </div>
   )
 }
