@@ -29,7 +29,7 @@ const page = async (props) => {
           <h2 className='font-semibold text-3xl text-gigText mt-5 p-5 leading-relaxed'>{gig.title}</h2>
           <div className=' my-3 ml-5 w-52'>
             <Image src={author.picture} width={45} height={30} alt='profile' className='rounded-full m-1 h-auto w-auto float-left p-2' />
-            <Link href={`/viewProfile/${author._id}`} className='font-semibold text-gigText text-sm pt-4 cursor-pointer hover:underline'>{author.name}</Link>
+            <Link href={`/viewProfile/${author.userId}`} className='font-semibold text-gigText text-sm pt-4 cursor-pointer hover:underline'>{author.name}</Link>
             <p className='py-1 text-sm flex flex-row align-middle font-semibold text-gigText cursor-pointer hover:underline'><FaStar className='w-8 mt-0.5' /> 5.0</p>
           </div>
           <br className='bg-black'/>

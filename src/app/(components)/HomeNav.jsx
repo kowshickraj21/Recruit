@@ -13,7 +13,7 @@ const HomeNav = (props) => {
         <Link href="/" className='ml-5 pr-5'>logo</Link>
       <form className=" w-3/5 flex flex-row border rounded-md">
         <input type="text" className=' p-3 w-11/12 placeholder: text-innerText pl-7' placeholder='Search for Freelancers'/>
-        <button className='w-1/12 px-7 border-l-2 bg-grey'><FaSearch /></button>
+        <button className='w-1/12 px-7 border-l-2 bg-secondry text-white'><FaSearch /></button>
       </form>
       <ul className="pl-10 list-none flex flex-row">
       <li className='px-3 p-3'><IoSunny className='w-6 h-6'/></li>

@@ -7,12 +7,13 @@ const userSchema = new Schema({
     picture: String,
     userId: String,
     DOB: Date,
-    likedIn: String,
+    linkedIn: String,
     gitHub: String,
     country: String,
     state: String,
     category: String,
     tags: Array,
+    title: String,
 },{
     timestamps: true,
 })

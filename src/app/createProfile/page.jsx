@@ -1,5 +1,5 @@
 "use client"
-import React,{ useState } from 'react';
+import React,{ useState,useRef } from 'react';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import Link from 'next/link';
 import { checkAvailable } from '../api/Users/checkId';
@@ -9,6 +9,7 @@ import createProfile from '../api/Users/createProfile';
 
 
 const page = () => {
+  const form = useRef(null)
   const [count, setCount] = useState(0)
   const [input, setInput] = useState("")
   const [tags, setTags] = useState([])
@@ -40,7 +41,6 @@ const page = () => {
    const handleSubmit = (formData) => {
     formData.preventDefault();
     const id = formData.target[0].value.toLowerCase();
-    console.log(id)
     createProfile({
       userId:id,
       DOB:formData.target[1].value,
@@ -51,12 +51,16 @@ const page = () => {
       state:formData.target[6].value,
       tags:tags
     })
+    form.current?.reset();
+    setTags([]);
+    setCount(0);
+    setInput("");
    }
   return (
     <div className='bg-grey w-full h-full p-10'>
       <Link href='/' className='text-lg font-medium flex mb-10'><FaArrowLeftLong className='m-1'/> Back to Home</Link>
       <div className='relative w-2/3 bg-white m-auto p-10 mb-10 pb-32'>
-      <form className='p-10' onSubmit={handleSubmit}>
+      <form className='p-10' onSubmit={handleSubmit} ref={form}>
         <div>
         <label htmlFor="Id">UserId</label>
         <input type="text" name='Id' id='Id' onChange={(e) => handleId(e.target.value)} className='border-2 m-5'/>
@@ -82,7 +86,9 @@ const page = () => {
         )})}
         </select>
     <Location />
-    <button type='submit' className='absolute bottom-10 '>Submit</button>
+    {available?
+      <button type='' className='absolute bottom-10 cursor-not-allowed' disabled>Submit</button>:
+      <button type='submit' className='absolute bottom-10' >Submit</button>}
       </form>
 
       <div className='w-1/2'>
