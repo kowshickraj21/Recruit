@@ -3,6 +3,7 @@ import React,{useRef,useState} from 'react'
 import Link from 'next/link';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { uploadGigs } from '../api/gigs/uploadGigs';
+import FileUpload from './fileUpload';
 
 const page = () => {
   const form = useRef(null)
@@ -28,10 +29,11 @@ const page = () => {
         <p>$<input type="number" name="projectly" id="projectly" className='border rounded-xl h-10 mx-5 w-44 p-2' placeholder='Price' required/>/Gig Order</p>
         <label htmlFor="hourly" className='my-5'>Fast Delivery:</label>
         <p>$<input type="number" name="fastDelivery" id="fastDelivery" className='border rounded-xl h-10 mx-5 w-44 p-2' placeholder='Fast Delivery' required/></p>
-        <label htmlFor="image" className='m-auto my-10 border h-40'>
+        {/* <label htmlFor="image" className='m-auto my-10 border h-40'>
           <p className='absolute -z-10'>custom upload</p>
         <input type="file" accept='image/*' name='image' className='p-16 opacity-100 cursor-pointer' required/>
-        </label>
+        </label> */}
+        <FileUpload />
         <p className='text-green-400 font-semibold text-center'>{warning}</p>
         <button type="submit" className='border-2 border-black font-semibold h-10 w-1/2 m-auto hover:bg-black hover:text-white active:bg-white active:text-black'>Create Gig</button>
       </form>
