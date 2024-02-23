@@ -5,7 +5,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { uploadGigs } from '../api/gigs/uploadGigs';
 import FileUpload from './fileUpload';
 
-const page = () => {
+const Page = () => {
   const form = useRef(null)
   const [warning, setWarning] = useState("")
   const handleSubmit = (formData) => {
@@ -42,4 +42,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

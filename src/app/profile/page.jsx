@@ -3,10 +3,14 @@ import Image from 'next/image';
 import fetchUser from '../api/Users/setDetails';
 import Link from 'next/link';
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { redirect } from 'next/navigation';
 
 const page = async () => {
   const user = await fetchUser()
   const Id = user.userId
+  if(!Id){
+    redirect('/createProfile')
+    }
   return (
     <div className='h-full'>
       <div className='bg-grey p-8'>

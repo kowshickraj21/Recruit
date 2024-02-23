@@ -38,16 +38,10 @@ export const options = {
         async signIn({profile}){
             try {
                 await connectMongoDB();
-
                 const userExists = await User.findOne({email: profile.email});
                 
                 if(!userExists){
-                    const user = await User.create({
-                        name: profile.name,
-                        email: profile.email,
-                        picture: profile.picture,
-                    })
-                    console.log(user);
+                    return false;
                 }
             }catch(e){
                 console.log(e)

@@ -11,12 +11,12 @@ const page = async () => {
     const data = await Gigs.find({email: user.email})
   return (
     <div>
-      {data.map((Data) => {
+      {data.map((Data,index) => {
          const imageData = Data.image
          const base64Image = Buffer.from(imageData).toString('base64');
          const image = (`data:image/png;base64,${base64Image}`);
         return (
-          <div>
+          <div key={index}>
           <p>{Data.title}</p>
         <Image src={image} width={500} height={500} alt="Profile"/>
         </div>

@@ -8,7 +8,7 @@ import Location from './location';
 import createProfile from '../api/Users/createProfile';
 
 
-const page = () => {
+const Page = () => {
   const form = useRef(null)
   const [count, setCount] = useState(0)
   const [input, setInput] = useState("")
@@ -111,4 +111,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

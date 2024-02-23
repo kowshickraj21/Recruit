@@ -10,15 +10,15 @@ const GigCards = async () => {
   await connectMongoDB();
   const gigs = await Gigs.find();
   return (
-    <div className='m-8 w-1/5 border rounded-2xl shadow-md hover:shadow-2xl cursor-pointer'>
-    {gigs.map(async (gig) => {
+    <div className='m-8 w-1/5 border rounded-2xl shadow-md hover:shadow-2xl cursor-pointer bg-white'>
+    {gigs.map(async (gig,index) => {
       const base64Image = Buffer.from(gig.image).toString('base64');
       const image = (`data:image/png;base64,${base64Image}`);
       const author = await User.findOne({email: gig.email});
       const authorData = JSON.parse(JSON.stringify(author));
       const gigData = JSON.parse(JSON.stringify(gig))
       return (
-      <Link href={`/Gigs/${gigData._id}`} >
+      <Link href={`/Gigs/${gigData._id}`} key={index} >
           <Image src={image} width={300} height={100} alt="Gig Image" className='object-fit rounded-xl w-full h-36 '/>
       <div className='flex flex-row align-middle my-2 mx-2 p-2'>
       <Image src={author.picture} width={30} height={25} alt='profile' className='rounded-full m-1 h-auto w-auto' />
