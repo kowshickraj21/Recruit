@@ -8,7 +8,7 @@ import { signIn } from 'next-auth/react';
 const Page = async () => {
   const authorized = await authorize();
   if(authorized){
-    redirect(history.back());
+    redirect('/');
   }
 
   const handleSubmit = async (formData) => {
