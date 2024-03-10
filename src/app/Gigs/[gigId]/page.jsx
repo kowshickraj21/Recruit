@@ -8,7 +8,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import OrderForm from '@/app/(components)/orderForm';
 import { FaStar } from "react-icons/fa6";
-import { IoChatboxEllipsesSharp } from "react-icons/io5";
+import ContactBtn from './ContactBtn';
+import ChatBox from '@/app/(components)/ChatBox'
 
 const page = async (props) => {
     const user = await fetchUser(); 
@@ -19,7 +20,9 @@ const page = async (props) => {
       const image = (`data:image/png;base64,${base64Image}`);
       const author = await User.findOne({email: gig.email});
       const stringData = JSON.stringify(gig);
-      const gigData = JSON.parse(stringData) 
+      const gigData = JSON.parse(stringData);
+
+
   return (
     <div>
       <HomeNav picture={user.picture}/>
@@ -47,11 +50,12 @@ const page = async (props) => {
         <div className=' w-full mt-5'>
           <div>
           <h2 className='font-semibold text-xl text-gigText mt-5 p-5 '>Contact Seller:</h2>
-          <button className='h-12 w-1/2 m-auto mt-5 bg-black text-white border-black border font-semibold flex flex-row justify-center align-middle p-3 shadow-2xl active:text-black active:bg-white'>Contact Me<IoChatboxEllipsesSharp className='m-1' /></button>
+          <ContactBtn />
           </div>
         </div>
         </div>
       </div>
+     <ChatBox picture={user.picture} name={user.name} contact={author.userId}/>
     </div>
   )
 }
