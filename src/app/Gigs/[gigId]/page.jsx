@@ -19,8 +19,8 @@ const page = async (props) => {
       const base64Image = Buffer.from(imageData).toString('base64');
       const image = (`data:image/png;base64,${base64Image}`);
       const author = await User.findOne({email: gig.email});
-      const stringData = JSON.stringify(gig);
-      const gigData = JSON.parse(stringData);
+      const gigData = JSON.parse(JSON.stringify(gig));
+      const authorData = JSON.parse(JSON.stringify(author));
 
 
   return (
@@ -50,12 +50,12 @@ const page = async (props) => {
         <div className=' w-full mt-5'>
           <div>
           <h2 className='font-semibold text-xl text-gigText mt-5 p-5 '>Contact Seller:</h2>
-          <ContactBtn />
+          <ContactBtn author={authorData}/>
           </div>
         </div>
         </div>
       </div>
-     <ChatBox picture={user.picture} name={user.name} contact={author.userId}/>
+     <ChatBox picture={user.picture} name={user.name}/>
     </div>
   )
 }

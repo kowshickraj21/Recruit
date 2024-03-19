@@ -19,10 +19,7 @@ const HomeNav = (props) => {
       <li className='px-3 p-3'><IoSunny className='w-6 h-6'/></li>
         <li className='px-3 p-3'><FiMessageSquare className='w-6 h-6'/></li>
         <li className='px-3 p-2'><IoCartOutline className='w-7 h-7'/></li>
-        {props.picture?
-        <li><ProfileButton picture={props.picture} id={props.id}/></li>:
-        <li><Link href='/login'><button className='border mr-4 ml-2 w-24 h-10 rounded-lg bg-secondry text-white'>Log In</button></Link></li>
-        }
+        <li><ProfileButton picture={props?.picture} id={props?.id}/></li>
       </ul>
       
     </nav>

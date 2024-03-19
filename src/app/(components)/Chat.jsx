@@ -3,6 +3,8 @@ import React,{useState} from 'react'
 import { io } from "socket.io-client";
 const socket = io('http://localhost:5000');
 import Image from 'next/image';
+import { IoMdSend } from "react-icons/io";
+import { storeMessage } from '@/app/api/chatDB/storeMessage'
 
 const Chat = (props) => {
   const { name,picture } = props.you
@@ -11,15 +13,18 @@ const Chat = (props) => {
   socket.on('chat-message',data =>{
     setMessage([...messages,{'sender':data.sender,'message':data.message}])
   })
-  const send = () => {
+
+  const send = async() => {
     socket.emit('client-message',name,input);
     setMessage([...messages,{'sender':name,'message':input}])
-    console.log(messages)
-    setInput('');
+    const sent = await storeMessage({message:input,reciever:'kowshick',sender:name});
+    console.log(sent)
+    setInput('')
   }
+  
   return (
     <div className='h-96 overflow-y-auto'>
-      <div className='pb-10'>
+      <div className='pb-10 '>
       {messages.map((message,index) =>{
         return(
         <div key={index} className='py-2 hover:bg-slate-50 px-2'>
@@ -32,9 +37,9 @@ const Chat = (props) => {
         )
       })}
       </div>
-      <div className='w-full absolute bottom-0 h-10'>
-      <input type="text" className='border w-3/4 h-10' value={input} onChange={(e) => {setInput(e.target.value)}}/>
-      <button className='border w-1/4 h-10' onClick={() => send()}>Send</button>
+      <div className='w-full absolute bottom-0 h-10 flex'>
+      <input type="text" className='border w-4/5 h-full' value={input} onChange={(e) => {setInput(e.target.value)}}/>
+      <button className='w-1/5 h-full bg-black text-white' onClick={() => send()}><IoMdSend className='m-auto text-xl'/></button>
       </div>
     </div>
   )
