@@ -25,7 +25,7 @@ const page = async (props) => {
 
   return (
     <div>
-      <HomeNav picture={user.picture}/>
+      <HomeNav picture={user?.picture}/>
       <div className='flex flex-row justify-evenly mt-10'>
         <div className='w-1/2'>
           <div className='border-b-2'>
@@ -55,7 +55,7 @@ const page = async (props) => {
         </div>
         </div>
       </div>
-     <ChatBox picture={user.picture} name={user.name}/>
+     <ChatBox picture={user.picture} name={user.name} email={user.email}/>
     </div>
   )
 }

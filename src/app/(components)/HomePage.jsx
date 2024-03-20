@@ -13,7 +13,7 @@ const HomePage = async () => {
       <section className='flex flex-row flex-wrap'>
         <GigCards />
      </section>
-     <ChatBox picture={user?.picture} name={user?.name}/>
+     <ChatBox picture={user?.picture} name={user?.name} email={user?.email}/>
     </div>
   )
 }
