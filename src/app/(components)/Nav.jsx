@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Nav = () => {
   return (
-    <nav className='py-4 flex flex-row items-center justify-between bg-transparent sticky top-0'>
+    <nav className='py-4 flex flex-row items-center justify-between h-20 bg-opacity-100 sticky top-0 bg-white z-10 my-3'>
         <div>Logo</div>
       <ul className="pl-10 list-none flex flex-row justify-evenly">
         <li className='px-10'>About</li>

@@ -13,7 +13,7 @@ const Login = () => {
             email,
             password,
             redirect: true,
-            callbackUrl:"http://localhost:3000"
+            callbackUrl:"https://recrutein-production.up.railway.app/"
           })
           if(res.error){
            console.log(e)
@@ -25,7 +25,7 @@ const Login = () => {
       }
       
   return (
-    <form action={handleSubmit} className='flex flex-col items-center' >
+    <form action={handleSubmit}x className='flex flex-col items-center' >
         <input type="email" name="email" id='email' required={true} placeholder='Email' className='border m-3 p-2 pr-10'/>
         <input type="text" name="password" id='password' required={true} placeholder='Password' className='border m-3 p-2 pr-10'/>
         <button type="submit" className='border m-3 px-24 rounded-3xl py-3 bg-secondry text-white'>Log In</button>

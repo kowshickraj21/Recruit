@@ -38,7 +38,7 @@ const Chat = (props) => {
   return (
     <div className='h-96 overflow-y-auto'>
       <div className='pb-10 '>
-      {pastMessages.map((message,index) =>{
+      {pastMessages?.map((message,index) =>{
         return(
         <div key={index} className='py-2 hover:bg-slate-50 px-2'>
           <div className='flex space-x-2'>

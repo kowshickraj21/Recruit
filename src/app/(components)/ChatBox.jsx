@@ -21,7 +21,7 @@ const ChatBox = (props) => {
   return (
     <div className='fixed bottom-0 right-5 bg-white rounded-t-lg w-1/4 z-10 shadow-lg shadow-innerText'>
     <ChatHead chat='chat' picture={props.picture}/>
-    {(open && chat.name)?<Chat you={props} />:open?<ChatList />:null}
+    {(open && chat.name)?<Chat you={props} />:open?<ChatList you={props}/>:null}
     </div>
   ) 
 }

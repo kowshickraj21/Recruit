@@ -4,7 +4,7 @@ import ProfileButton from './profileButton';
 import Link from 'next/link';
 import { IoSunny } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
-import { FiMessageSquare } from "react-icons/fi";
+import { FaRegBell } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 
 const HomeNav = (props) => {
@@ -15,9 +15,9 @@ const HomeNav = (props) => {
         <input type="text" className=' p-3 w-11/12 placeholder: text-innerText pl-7' placeholder='Search for Freelancers'/>
         <button className='w-1/12 px-7 border-l-2 bg-secondry text-white'><FaSearch /></button>
       </form>
-      <ul className="pl-10 list-none flex flex-row">
+      <ul className="pl-10 list-none flex flex-row items-center">
       <li className='px-3 p-3'><IoSunny className='w-6 h-6'/></li>
-        <li className='px-3 p-3'><FiMessageSquare className='w-6 h-6'/></li>
+        <li className='px-3 p-3'><FaRegBell className='w-6 h-6'/></li>
         <li className='px-3 p-2'><IoCartOutline className='w-7 h-7'/></li>
         <li><ProfileButton picture={props?.picture} id={props?.id}/></li>
       </ul>

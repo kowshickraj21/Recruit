@@ -8,12 +8,10 @@ export const storeMessage = async ({message,sender,reciever,messageSender}) => {
         const chatExists = await ChatMessages.findOne({sender:sender,reciever:reciever}) || await ChatMessages.findOne({sender:reciever,reciever:sender});
         if(chatExists){
             const updateMessage = await ChatMessages.findOneAndUpdate({_id: chatExists._id},{$push:{messages:{sender:messageSender,message:message}}})
-            console.log(updateMessage)
         }else{
             const newMessage = [{sender:messageSender,message:message}]
             const newChat = {sender:sender,reciever:reciever,messages:newMessage}
             const newMembers = await ChatMessages.create(newChat)
-            console.log(newMembers)
         }
     }catch(err){
         console.log(err)
