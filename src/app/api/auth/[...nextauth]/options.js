@@ -13,15 +13,18 @@ export const options = {
                 password: {label:"Password",type:"text"}
             },
             async authorize(credentials){
+                try{
                 connectMongoDB()
                 const user = await User.findOne({email: credentials.email});
                 if(user && user.password){
                    const res = await bcrypt.compare(credentials.password, user.password)
                     console.log(res)
                     if(res) return user;
-                    return false
+                    throw new Error("No user");
             }
-            return false;
+        }catch(e){
+            throw new Error('Auth Error');
+        }
 }}), 
         GoogleProvider({
             clientId: process.env.GOOGLE_ID,
