@@ -6,15 +6,20 @@
     "dev": "concurrently \"next dev\" \"cd src/server && npm run dev\"",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx ./src/drizzle/migrate.ts"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^0.9.3",
     "@uploadthing/react": "^6.2.2",
     "@upstash/redis": "^1.28.4",
     "aws4": "^1.12.0",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "concurrently": "^8.2.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.31.2",
     "framer-motion": "^10.17.9",
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.3",
@@ -26,12 +31,14 @@
     "socket.io": "^4.7.4",
     "socket.io-client": "^4.7.4",
     "state-country": "^2.0.0",
+    "tsx": "^4.15.3",
     "typescript": "^5.3.3",
     "uploadthing": "^6.3.3"
   },
   "devDependencies": {
     "@types/react": "18.2.55",
     "autoprefixer": "^10.0.1",
+    "drizzle-kit": "^0.22.7",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",

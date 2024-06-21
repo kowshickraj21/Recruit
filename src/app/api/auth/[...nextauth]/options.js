@@ -1,8 +1,11 @@
 import GoogleProvider from "next-auth/providers/google";
 import  CredentialsProvider  from "next-auth/providers/credentials";
-import { connectMongoDB } from "@/models/mongodb";
-import User from "@/models/user";
-import bcrypt from "bcrypt";
+// import { connectMongoDB } from "@/models/mongodb";
+// import User from "@/models/user";
+import {db} from '@/drizzle/index.ts';
+import { user } from '@/drizzle/schema.ts';
+import { eq } from "drizzle-orm";
+import bcrypt from "bcryptjs";
 
 export const options = {
     providers: [ 
@@ -13,22 +16,22 @@ export const options = {
                 password: {label:"Password",type:"text"}
             },
             async authorize(credentials){
-                try{
-                connectMongoDB()
-                const user = await User.findOne({email: credentials.email});
-                if(user && user.password){
-                   const res = await bcrypt.compare(credentials.password, user.password)
-                    console.log(res)
-                    if(res) return user;
-                    throw new Error("No user");
-            }
-        }catch(e){
-            throw new Error('Auth Error');
-        }
-}}), 
+                    const exists = await db.select().from(user).where(eq(user.email, credentials.email));
+                    const User = exists[0];
+                    if(User && User.password && User.provider != "google"){
+                        const res = await bcrypt.compare(credentials.password, User.password)
+                        if(res) return User;
+                        return null;
+                    }
+            }}), 
+            
         GoogleProvider({
             clientId: process.env.GOOGLE_ID,
-            clientSecret: process.env.GOOGLE_SECRET
+            clientSecret: process.env.GOOGLE_SECRET,
+            async signIn(data){
+              // console.log(data);
+              return true;
+            }
         }),
     ],
     pages:{
@@ -39,29 +42,27 @@ export const options = {
     },
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
-        async session({session, token}){
-            if(session?.user) session.user.role = token.role;
-            return session;
-        },
-        async signIn({profile}){
-            try {
-                await connectMongoDB();
-                const userExists = await User.findOne({email: profile.email});
-                if(!userExists){
-                    const user = await User.create({
-                        name: profile.name,
-                        email: profile.email,
-                        picture: profile.picture,
-                    })
-                    console.log(user);
-                }
-            }catch(e){
-                console.log(e)
+      async signIn(params){
+        const User = params.user;
+        const exists = await db.select().from(user).where(eq(user.email, User.email));
+        console.log("exists");
+            if(exists.length == 0){
+              User.picture = User.image;
+              await db.insert(user).values(User);
             }
-            return true;
-        },
-        async jwt(props) {
-            return props.token
+        return User;
+      },
+          async session({ session }) { 
+            return session;
+          },
+          async jwt({ token, user }) {
+            if (user) {
+              token.role = user.role;  // Add user role to token
+            }
+            return token;
           }
-    }
+        },
+        session: {
+          jwt: true,
+        },
 };

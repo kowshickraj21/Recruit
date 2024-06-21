@@ -4,9 +4,7 @@ import { signIn } from 'next-auth/react';
 
 const AuthButton = () => {
   return (
-    <div>
-      <button onClick={() => signIn("google",{ callbackUrl: '/'})} type="submit" className="button bg-white border flex flex-row m-10 px-5 rounded-full" ><img loading="lazy" height="24" width="24" id="provider-logo" src="https://authjs.dev/img/providers/google.svg" alt='google' className='ml-5 py-4'/><span className='pl-5 py-4 mr-5'>Continue with Google</span></button>
-    </div>
+      <button onClick={() => signIn("google",{ callbackUrl: '/'})} type="submit" className=" bg-white border w-full border-black h-10 flex flex-row rounded-md my-5 items-center justify-center" ><img loading="lazy" height="20" width="20" id="provider-logo" src="https://authjs.dev/img/providers/google.svg" alt='google'/><span className='ml-2 text-sm'>Continue with Google</span></button>
   )
 }
 

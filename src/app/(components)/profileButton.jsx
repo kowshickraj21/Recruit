@@ -12,10 +12,10 @@ const ProfileButton = (props) => {
       </div>
       {(open)?<ul className='absolute w-36 p-2 top-20 right-10 bg-white border shadow-md'>
       {(props.id)?
-      <li className='p-1'><Link href='/profile'>View Profile</Link></li>:
+      <li className='p-1'><Link href={`/${props.id}`}>View Profile</Link></li>:
       <li className='p-1'><Link href='/createProfile'>Create Profile</Link></li>
       }
-      <li className='p-1'><Link href='/createGigs'>Add Gigs</Link></li>
+      {(props.id)?<li className='p-1'><Link href='/createGigs'>Add Gigs</Link></li>:null}
       <li className=' p-1 pt-5'><Link href='/api/auth/signout?callbackUrl=/'>log Out</Link></li>
       </ul>: null}
     </div>

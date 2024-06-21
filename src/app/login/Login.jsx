@@ -1,35 +1,40 @@
 "use client"
-import React from 'react'
+import React,{useState} from 'react'
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import AuthButton from './OAuth'
+
 
 const Login = () => {
+  const router = useRouter();
 
     const handleSubmit = async (formData) => {
         const email = formData.get("email")
         const password = formData.get("password")
         try {
-          await signIn("credentials",{
+          const auth = await signIn("credentials",{
             email,
             password,
             redirect: true,
-            callbackUrl:"https://recrutein-production.up.railway.app/"
+            callbackUrl: "localhost:3000"
           })
-          if(res.error){
-           console.log(e)
+          if(auth.error == null){
+            router.refresh();
+            router.push('/');
           }
-          console.log(e)
         }catch(e){
           console.log(e)
         }
       }
       
   return (
-    <form action={handleSubmit}x className='flex flex-col items-center' >
-        <input type="email" name="email" id='email' required={true} placeholder='Email' className='border m-3 p-2 pr-10'/>
-        <input type="text" name="password" id='password' required={true} placeholder='Password' className='border m-3 p-2 pr-10'/>
-        <button type="submit" className='border m-3 px-24 rounded-3xl py-3 bg-secondry text-white'>Log In</button>
-        <p>Don&#39;t have an account?<Link href='/signup'>Sign Up</Link></p>
+    <form action={handleSubmit} className='flex flex-col items-center' >
+        <input type="email" name="email" id='email' required={true} placeholder='Email' className='border m-3 p-2 w-full'/>
+        <input type="text" name="password" id='password' required={true} placeholder='Password' className='border m-3 p-2 w-full'/>
+        <button type="submit" className='border mt-5 rounded-md bg-secondry h-10 text-white w-full'>Log In</button>
+        <AuthButton />
+        <p className='my-5'>Don&#39;t have an account? <Link href='/signup' className='underline'>Sign Up</Link></p>
       </form>
   )
 }

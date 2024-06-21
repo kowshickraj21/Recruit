@@ -10,7 +10,7 @@ export async function middleware(req) {
   if (!token && pathname != "/login" && !pathname != "/signup" && !pathname != "/") {
     return NextResponse.redirect(new URL('/login', req.url))
   }
-
+  
   return NextResponse.next();
 }
 

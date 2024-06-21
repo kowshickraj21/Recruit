@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import { connectMongoDB } from '@/models/mongodb';
-import User from '@/models/user';
+import {db} from '@/drizzle/index.ts';
+import {user} from '@/drizzle/schema.ts';
+import { eq } from "drizzle-orm";
 import fetchUser from '@/app/api/Users/setDetails';
 import HomeNav from '@/app/(components)/HomeNav';
 import ProfileCard from './ProfileCard';
@@ -11,19 +12,19 @@ import OrderPage from './OrderPage';
 
 const page = async (props) => {
   const {params,searchParams} = props
-  const user = await fetchUser();
+  const User = await fetchUser();
   const pages = ["Posts","Gigs","Orders"]
-  await connectMongoDB();
-  const profile = await User.findOne({userId:params.profileId})
+  const profile = await db.select().from(user).where(eq(params.profileId,user.userId));
   const active = searchParams.active || "Posts";
-
+  const isAuth = profile[0].email == User.email;
+  
   return (
     <div className='bg-gray-50 h-full'>
-      <HomeNav picture={user?.picture} id={user?.userId} />
+      <HomeNav picture={User?.picture} id={User?.userId} />
       <div>
       <div className='bg-gray-200 h-72 w-full m-auto'>
       </div>
-      <ProfileCard profileId={props.params.profileId}/>
+      <ProfileCard profile={profile[0]} isAuth={isAuth}/>
       <div className='bg-gray-100 w-full h-16 block'>
       <div className='flex space-x-5'>
       {pages.map((page,index)=> {
