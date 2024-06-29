@@ -6,6 +6,7 @@ import { checkAvailable } from '../api/Users/checkId';
 import { categories } from '@/assets/categories';
 import Location from './location';
 import createProfile from '../api/Users/createProfile';
+import HomeNav from '../(components)/HomeNav';
 
 
 const Page = () => {
@@ -57,10 +58,11 @@ const Page = () => {
     setInput("");
    }
   return (
-    <div className='bg-grey w-full h-full p-10'>
-      <Link href='/' className='text-lg font-medium flex mb-10'><FaArrowLeftLong className='m-1'/> Back to Home</Link>
-      <div className='relative w-2/3 bg-white m-auto p-10 mb-10 pb-32'>
-      <form className='p-10' onSubmit={handleSubmit} ref={form}>
+    <div className='w-full h-full'>
+      {/* <Link href='/' className='text-lg font-medium flex mb-10'><FaArrowLeftLong className='m-1'/> Back to Home</Link> */}
+      <HomeNav />
+      <div className='relative bg-white m-auto p-10 mb-10 pb-32'>
+      <form className='p-10  flex flex-wrap' onSubmit={handleSubmit} ref={form}>
         <div>
         <label htmlFor="Id">UserId</label>
         <input type="text" name='Id' id='Id' onChange={(e) => handleId(e.target.value)} className='border-2 m-5'/>

@@ -1,11 +1,11 @@
 import React from 'react'
 
-const PostPage = () => {
+const SavedPage = () => {
   return (
     <div>
-      hello
+      Saved
     </div>
   )
 }
 
-export default PostPage
+export default SavedPage

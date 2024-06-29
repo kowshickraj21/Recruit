@@ -6,16 +6,16 @@ import { eq } from "drizzle-orm";
 import fetchUser from '@/app/api/Users/setDetails';
 import HomeNav from '@/app/(components)/HomeNav';
 import ProfileCard from './ProfileCard';
-import PostPage from './PostPage';
+import AboutPage from './AboutPage';
 import GigPage from './GigPage';
-import OrderPage from './OrderPage';
+import SavedPage from './SavedPage';
 
 const page = async (props) => {
   const {params,searchParams} = props
   const User = await fetchUser();
-  const pages = ["Posts","Gigs","Orders"]
+  const pages = ["About","Gigs","Saved"]
   const profile = await db.select().from(user).where(eq(params.profileId,user.userId));
-  const active = searchParams.active || "Posts";
+  const active = searchParams.active || "About";
   const isAuth = profile[0].email == User.email;
   
   return (
@@ -28,12 +28,13 @@ const page = async (props) => {
       <div className='bg-gray-100 w-full h-16 block'>
       <div className='flex space-x-5'>
       {pages.map((page,index)=> {
-     return <Link href={`?active=${page}`} key={index} className={`relative left-10 p-4 text-xl font-semibold hover:border-b-2 hover:border-secondry hover:text-secondry cursor-pointer ${
-      active === page ? "border-b-2 border-secondry text-secondry" : null}`}>{page}</Link>
+        if(isAuth || page != "Saved")
+          return <Link href={`?active=${page}`} key={index} className={`relative left-10 p-4 text-xl font-semibold hover:border-b-2 hover:border-secondry hover:text-secondry cursor-pointer ${
+            active === page ? "border-b-2 border-secondry text-secondry" : null}`}>{page}</Link>
       })}
       </div>
       </div>
-      {(active === "Posts")?<PostPage />:(active === "Gigs")?<GigPage />:(active === "Orders")?<OrderPage />:null}
+      {(active === "About")?<AboutPage isAuth={isAuth} profile={profile[0]}/>:(active === "Gigs")?<GigPage />:(active === "Saved")?<SavedPage />:null}
       </div>
     </div>
   )
