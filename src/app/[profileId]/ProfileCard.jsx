@@ -11,21 +11,21 @@ const ProfileCard = async (props) => {
   return (
     <div>
     {profile?
-    <div className='float-left h-full w-1/5 bg-white relative bottom-36 ml-16 rounded-xl shadow-2xl'>
-
-      <Image src={profile?.picture} width={250} height={200} alt="Profile Picture" className='rounded-full m-auto mt-8 w-auto' />
-
+    <div className='lg:float-left h-full lg:w-1/5 w-full bg-white relative bottom-36 lg:ml-16 rounded-xl lg:shadow-2xl -mb-32 py-5 lg:py-0'>
+      <div className='relative w-32 h-32 m-auto rounded-full mt-8'>
+      <Image src={profile?.picture} fill alt="Profile Picture" className='rounded-full'/>
+      </div>
       <h2 className='text-center pt-7 text-2xl font-bold'>{profile?.name}</h2>
       <p className='text-center pt-2 text-innerText '>@{profile?.userId}</p>
 
       {profile?.title?<p className='text-center mt-8 text-lg font-medium'>{profile?.title}</p>: null}
       {(profile?.title && props.isAuth)?<p className='text-center mt-8 text-lg font-medium'>Edit Title <GoPencil /></p>:null}
       {(!profile?.title && props.isAuth)?<p className='text-center mt-8 text-lg font-medium cursor-pointer hover:underline'>Add a Job Title</p>:null}
-
-      <p className='m-10 mb-5 opacity-75 flex'><IoLocationOutline className='text-2xl'/>{profile?.state}, {profile?.country}</p>
-
-      <Link href={profile?.linkedIn} target='_blank' className='m-10 my-5 opacity-75 flex hover:text-secondry hover:underline hover:opacity-100'><FaLinkedin className='text-2xl mr-1'/>LinkedIn</Link>
-      <Link href={profile?.gitHub} target='_blank' className='m-10 mt-5 opacity-75 flex hover:text-secondry hover:underline hover:opacity-100'><FaGithub className='text-2xl mr-1'/>GitHub</Link>
+      <div className='flex flex-col justify-center items-center lg:items-start m-10 gap-4 opacity-75'>
+      <p className='flex text-center'><IoLocationOutline className='text-2xl'/>{profile?.state}, {profile?.country}</p>
+      <Link href={profile?.linkedIn} target='_blank' className=' flex hover:text-secondry hover:underline hover:opacity-100'><FaLinkedin className='text-2xl mr-1'/>LinkedIn</Link>
+      <Link href={profile?.gitHub} target='_blank' className='flex hover:text-secondry hover:underline hover:opacity-100'><FaGithub className='text-2xl mr-1'/>GitHub</Link>
+      </div>
       </div>
       :null}
       </div>

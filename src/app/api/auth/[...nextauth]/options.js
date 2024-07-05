@@ -1,7 +1,5 @@
 import GoogleProvider from "next-auth/providers/google";
 import  CredentialsProvider  from "next-auth/providers/credentials";
-// import { connectMongoDB } from "@/models/mongodb";
-// import User from "@/models/user";
 import {db} from '@/drizzle/index.ts';
 import { user } from '@/drizzle/schema.ts';
 import { eq } from "drizzle-orm";
@@ -29,7 +27,6 @@ export const options = {
             clientId: process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_SECRET,
             async signIn(data){
-              // console.log(data);
               return true;
             }
         }),

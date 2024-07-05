@@ -8,18 +8,18 @@ import { user,gigs } from '@/drizzle/schema';
 import { eq,not } from 'drizzle-orm';
 
 
-const GigCards = async () => {
+const GigCards = async ({profile}) => {
   const auth = await fetchUser();
-  const gigList = await db.select().from(gigs).where(not(eq(gigs.email,auth.email)));
+  const gigList = (profile)?await db.select().from(gigs).where(eq(gigs.email,profile)):await db.select().from(gigs).where(not(eq(gigs.email,auth.email)));
 
   return (
-    <div className='flex w-full'>
+    <div className='flex w-full sm:flex-row flex-col items-center'>
 
     {gigList.map(async (gig,index) => {
       const author = await db.select().from(user).where(eq(user.email,gig.email));
 
       return (
-      <Link href={`/Gigs/${gig.gigId}`} key={index} className='m-8 lg:w-1/5 min-w-20 border rounded-2xl shadow-md hover:shadow-2xl cursor-pointer bg-white'>
+      <Link href={`/Gigs/${gig.gigId}`} key={index} className='m-8 min-w-20 border rounded-2xl shadow-md hover:shadow-2xl cursor-pointer bg-white'>
           
           <Image src={gig.image} width={300} height={100} alt="Gig Image" className='object-fit rounded-xl w-full h-36 '/>
           
