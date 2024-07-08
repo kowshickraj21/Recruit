@@ -13,7 +13,10 @@ const ContactBtn = ({author}) => {
     setChat(authorData)
   }
   return (
-    <button className='h-12 w-1/2 m-auto mt-5 bg-black text-white border-black border font-semibold flex flex-row justify-center align-middle p-3 shadow-2xl active:text-black active:bg-white' onClick={() => handleClick()}>Contact Me<IoChatboxEllipsesSharp className='m-1' /></button>
+    <div className='w-full lg:m-auto'>
+    <button className='lg:hidden h-12 w-3/4 bg-black text-white border-black border font-semibold p-3 shadow-2xl active:text-black active:bg-white' onClick={() => handleClick()}>Contact</button>
+    <button className='hidden h-12 w-1/2 m-auto mt-5 bg-black text-white border-black border font-semibold lg:flex flex-row justify-center align-middle p-3 shadow-2xl active:text-black active:bg-white' onClick={() => handleClick()}>Contact Me<IoChatboxEllipsesSharp className='m-1' /></button>
+    </div>
   )
 }
 

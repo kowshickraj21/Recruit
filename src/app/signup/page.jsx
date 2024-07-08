@@ -2,6 +2,8 @@
 import { useRouter } from 'next/navigation';
 import {useState} from 'react';
 import signUp from './signup';
+import AuthButton from '../login/OAuth'
+import Link from 'next/link';
 
 const Page = () => {
   const router = useRouter();
@@ -39,7 +41,10 @@ const Page = () => {
         <input type="text" name="password" id='password' onChange={handleChange} required={true} placeholder='Password' className='border m-3 p-2 pr-10'/>
         <button type="submit" className='border mt-5 rounded-md bg-secondry h-10 text-white w-full'>Register</button>
         <p>{warning}</p>
+        <p className='mt-5'>or</p>
+        <AuthButton />
       </form>
+      <Link href="/login" className='hover:underline'>Already have an account?</Link>
     </div>
     </div>
   )

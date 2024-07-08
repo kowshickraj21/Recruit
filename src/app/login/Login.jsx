@@ -1,5 +1,5 @@
 "use client"
-import React,{useState} from 'react'
+import React from 'react'
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -29,13 +29,16 @@ const Login = () => {
       }
       
   return (
+    <div className='flex flex-col items-center'>
     <form action={handleSubmit} className='flex flex-col items-center' >
         <input type="email" name="email" id='email' required={true} placeholder='Email' className='border m-3 p-2 w-full'/>
         <input type="text" name="password" id='password' required={true} placeholder='Password' className='border m-3 p-2 w-full'/>
         <button type="submit" className='border mt-5 rounded-md bg-secondry h-10 text-white w-full'>Log In</button>
-        <AuthButton />
-        <p className='my-5'>Don&#39;t have an account? <Link href='/signup' className='underline'>Sign Up</Link></p>
       </form>
+      <p className='mt-5'>or</p>
+      <AuthButton />
+      <p className='my-5'>Don&#39;t have an account? <Link href='/signup' className='underline'>Sign Up</Link></p>
+      </div>
   )
 }
 

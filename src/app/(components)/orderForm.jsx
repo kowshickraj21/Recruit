@@ -25,7 +25,7 @@ const OrderForm = (props) => {
   }
     }
   return (
-    <div className='m-auto w-2/3 mt-5 rounded-lg border-2 mb-24'>
+    <div className='m-auto lg:w-2/3 mt-5 rounded-lg border-2 mb-24'>
       <div className='border-b-2 flex'>
       <h2 className='font-semibold w-3/5 z-10 text-center py-3 cursor-pointer border-b-2 border-black bg-grey' ref={purchase} onClick={() => setActive("purchase")}>Purchase Gig</h2>
       <h2 className='font-semibold w-3/5 text-center py-3  cursor-pointer text-innerText' ref={hire} onClick={() => setActive("hire")}>Hire Hourly</h2>
