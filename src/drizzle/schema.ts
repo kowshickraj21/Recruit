@@ -16,7 +16,8 @@ export const user = pgTable("user", {
     category: text("Category"),
     tags: text('tags1').array().notNull().default(sql`'{}'::text[]`),
     title: text("title"),
-    provider: text("provider")
+    provider: text("provider"),
+    description: text("description").default("Hello EveryOne! I am new to recrute.")
 });
 
 export const usersRelations = relations(user, ({ many }) => ({

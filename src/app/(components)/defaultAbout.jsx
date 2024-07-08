@@ -62,7 +62,7 @@ const DefaultAbout = () => {
                 <h3 className='text-4xl font-bold leading-relaxed'>Build Your Recrute Profile,</h3>
                 <h3 className='text-4xl font-bold leading-relaxed'>Get Hired</h3> 
                 <p className='pt-6'> Sign up on Recrute.in today and create your profile to get noticed by top recruiters! Showcase your skills to attract potential employers. By creating gigs based on your unique skill set, you can highlight your strengths and connect with clients looking for your specific talents.</p>
-                <p className='pt-6'>Whether you're a seasoned professional or just starting, Recrute.in is the platform for everyone. Don't wait, Join now and start building your professional network!</p>
+                <p className='pt-6'>Whether you&apos;re a seasoned professional or just starting, Recrute.in is the platform for everyone. Don&apos;t wait, Join now and start building your professional network!</p>
                 <button className='bg-secondry h-12 px-5 text-white rounded-md mt-10'>Create a Profile</button>
             </div>
             <div className='relative w-1/3 h-3/4'>

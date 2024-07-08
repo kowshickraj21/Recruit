@@ -22,7 +22,7 @@ const page = async (props) => {
       <div className='flex lg:flex-row-reverse flex-col justify-evenly mt-10'>
       <div className='lg:w-2/5 w-full lg:h-svh lg:sticky lg:top-10'>
         <div className='w-full lg:h-96 h-72 md:h-80 relative overflow-hidden bg-gray-100 mr-5' >
-        <Image src={gig[0].image} fill className='object-fit m-auto h-96 w-full'/>
+        <Image src={gig[0].image} fill className='object-fit m-auto h-96 w-full' alt='gig Image'/>
         </div>
         <div className='w-full mt-5 lg:block hidden'>
           <h2 className='font-semibold text-xl text-gigText mt-5 p-5'>Contact Seller:</h2>

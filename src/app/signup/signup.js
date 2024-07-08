@@ -1,3 +1,4 @@
+"use server"
 import bcrypt from "bcryptjs";
 import {db} from '@/drizzle/index.ts';
 import {user} from '@/drizzle/schema.ts';

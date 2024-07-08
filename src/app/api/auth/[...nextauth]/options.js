@@ -42,9 +42,9 @@ export const options = {
       async signIn(params){
         const User = params.user;
         const exists = await db.select().from(user).where(eq(user.email, User.email));
-        console.log("exists");
             if(exists.length == 0){
               User.picture = User.image;
+              User.provider = "google";
               await db.insert(user).values(User);
             }
         return User;

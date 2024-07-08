@@ -12,10 +12,10 @@ const Page = () => {
 
   const handleForm = async(e) => {
     e.preventDefault(); 
-    // const formData = new FormData(form.current);
+    const formData = new FormData(form.current);
 
-    // const res = await handleSubmit(formData,link);
-    // setWarning(res);
+    const res = await handleSubmit(formData,link);
+    setWarning(res);
   }
 
   const handleUpload = (uploadLink) => {

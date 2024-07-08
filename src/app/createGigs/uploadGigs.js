@@ -15,7 +15,6 @@ export const handleSubmit = async(formData,link) => {
     const formObj = Object.fromEntries(formData.entries());
     console.log(formObj);
     await db.insert(gigs).values(formObj);
-    form.current?.reset()
     return("Gig created Successfully");
     }
     return("Upload A Picture");
