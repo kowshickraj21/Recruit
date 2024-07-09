@@ -19,7 +19,7 @@ const GigCards = async ({profile}) => {
       const author = await db.select().from(user).where(eq(user.email,gig.email));
 
       return (
-      <Link href={`/Gigs/${gig.gigId}`} key={index} className={`m-8 min-w-20 border rounded-2xl shadow-md hover:shadow-2xl cursor-pointer bg-white ${profile?'w-1/4':'w-1/5'}`}>
+      <Link href={`/Gigs/${gig.gigId}`} key={index} className={`m-8 min-w-20 border rounded-2xl shadow-md hover:shadow-2xl cursor-pointer bg-white ${profile?'lg:w-1/4 w-4/5':'lg:w-1/5 w-4/5'}`}>
           
           <Image src={gig.image} width={300} height={100} alt="Gig Image" className='object-fit rounded-xl w-full h-36 '/>
           
