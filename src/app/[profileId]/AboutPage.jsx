@@ -18,7 +18,7 @@ const AboutPage = ({profile,isAuth}) => {
           <h2 className='text-2xl font-semibold'>Descriprion:</h2>
           {isAuth?<button onClick={() => setEditDescription(true)}><GoPencil /></button>:null}
         </div>
-        <p className='md:px-10 pg-5'>{profile.description}</p>
+        <p className='md:px-10 pg-5'>{profile?.description}</p>
       {/* <p>{profile.createdAt}</p> */}
 
       </div>

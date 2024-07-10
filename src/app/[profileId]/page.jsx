@@ -15,7 +15,7 @@ const page = async (props) => {
   const pages = ["About","Gigs"]
   const profile = await db.select().from(user).where(eq(params.profileId,user.userId));
   const active = searchParams.active || "About";
-  const isAuth = profile[0].email == User.email;
+  const isAuth = profile[0]?.email == User?.email;
   
   return (
     <div className='bg-gray-50 min-h-svh'>

@@ -2,7 +2,6 @@
 import { connectMongoDB } from "@/models/mongodb";
 import ChatMessages from '@/models/chatMessages';
 export const storeMessage = async ({message,sender,reciever,messageSender}) => {
-    console.log('sender',messageSender)
     try{
         connectMongoDB();
         const chatExists = await ChatMessages.findOne({sender:sender,reciever:reciever}) || await ChatMessages.findOne({sender:reciever,reciever:sender});

@@ -4,7 +4,7 @@ import ProfileButton from './profileButton';
 import Link from 'next/link';
 import { IoCartOutline,IoSearch,IoClose } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
-import { FaRegBell } from "react-icons/fa";
+import Notification from './notification'
 
 const HomeNav = (props) => {
   const [open,setOpen] = useState(false);
@@ -18,7 +18,7 @@ const HomeNav = (props) => {
       </form>
       <ul className="pl-10 list-none flex flex-row items-center ">
         <li className='lg:hidden p-2' onClick={() => setOpen(true)}><IoSearch className='w-7 h-7'/></li>
-        <li className='p-2'><FaRegBell className='w-6 h-6'/></li>
+        <li className='p-2'><Notification /></li>
         <li className='lg:block hidden md:px-3 p-2'><IoCartOutline className='w-7 h-7'/></li>
         <li><ProfileButton picture={props?.picture} id={props?.id}/></li>
       </ul>

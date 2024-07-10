@@ -3,13 +3,14 @@ import HomeNav from '@/app/(components)/HomeNav';
 import fetchUser from '@/app/api/Users/setDetails';
 import Link from 'next/link';
 import Image from 'next/image';
-import OrderForm from '@/app/(components)/orderForm';
+import OrderForm from './orderForm';
 import { FaStar } from "react-icons/fa6";
 import ContactBtn from './ContactBtn';
 import ChatBox from '@/app/(components)/ChatBox'
 import { db } from '@/drizzle/index';
 import { user,gigs } from '@/drizzle/schema';
 import { eq } from 'drizzle-orm';
+import Reviews from './reviews';
 
 const page = async (props) => {
     const auth = await fetchUser(); 
@@ -17,10 +18,10 @@ const page = async (props) => {
     const author = await db.select().from(user).where(eq(user.email,gig[0].email));
 
   return (
-    <div className='overflow-hidden'>
-      <HomeNav picture={auth?.picture}/>
+    <div className=''>
+      <HomeNav picture={auth?.picture} id={auth?.userId}/>
       <div className='flex lg:flex-row-reverse flex-col justify-evenly mt-10'>
-      <div className='lg:w-2/5 w-full lg:h-svh lg:sticky lg:top-10'>
+      <div className='lg:w-2/5 w-full lg:h-svh lg:sticky lg:top-20'>
         <div className='w-full lg:h-96 h-72 md:h-80 relative overflow-hidden bg-gray-100 mr-5' >
         <Image src={gig[0].image} fill className='object-fit m-auto h-96 w-full' alt='gig Image'/>
         </div>
@@ -54,8 +55,9 @@ const page = async (props) => {
           </div>
 
             <OrderForm gigData={gig[0]} />
+            <Reviews author={author[0]}/>
         </div>
-        
+
       </div>
      <ChatBox picture={auth.picture} name={auth.name} email={auth.email}/>
     </div>
