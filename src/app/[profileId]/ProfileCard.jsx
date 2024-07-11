@@ -9,6 +9,7 @@ import { GoPencil } from "react-icons/go";
 import TitleModal from './titleModal'
 
 const ProfileCard = ({profile,isAuth}) => {
+  
     const [editTitle,setEditTitle] = useState(false);
   return (
     <div>

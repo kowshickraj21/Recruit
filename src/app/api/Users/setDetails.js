@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth';
 import { options } from '@/app/api/auth/[...nextauth]/options';
-import {db} from '@/drizzle/index.ts';
-import { user } from '@/drizzle/schema.ts';
+import {db} from '@/drizzle';
+import { user } from '@/drizzle/schema';
 import { eq } from "drizzle-orm";
 
 export default async function fetchUser(){

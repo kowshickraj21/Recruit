@@ -1,6 +1,6 @@
 import React,{useRef} from 'react'
 import { MdClose } from 'react-icons/md'
-import { setTitle } from './editDetails'
+import { setTitle } from '../api/profile/editDetails'
 
 const TitleModal = ({close,profile}) => {
   const text = useRef();

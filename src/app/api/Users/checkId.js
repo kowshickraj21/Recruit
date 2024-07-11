@@ -5,6 +5,7 @@ import { eq } from "drizzle-orm";
 
 export async function checkAvailable(Id){
     const available = await db.select().from(user).where(eq(user.userId,Id));
+    console.log(available)
     if(available.length > 0){
         return true;
     }else{

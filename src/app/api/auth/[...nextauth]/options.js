@@ -1,7 +1,7 @@
 import GoogleProvider from "next-auth/providers/google";
 import  CredentialsProvider  from "next-auth/providers/credentials";
-import {db} from '@/drizzle/index.ts';
-import { user } from '@/drizzle/schema.ts';
+import {db} from '@/drizzle';
+import { user } from '@/drizzle/schema';
 import { eq } from "drizzle-orm";
 import bcrypt from "bcryptjs";
 

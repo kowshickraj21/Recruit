@@ -1,7 +1,5 @@
 "use client"
 import React,{ useState,useRef } from 'react';
-import { FaArrowLeftLong } from "react-icons/fa6";
-import Link from 'next/link';
 import { checkAvailable } from '../api/Users/checkId';
 import { categories } from '@/assets/categories';
 import Location from './location';
@@ -59,27 +57,27 @@ const Page = () => {
    }
   return (
     <div className='w-full h-full'>
-      {/* <Link href='/' className='text-lg font-medium flex mb-10'><FaArrowLeftLong className='m-1'/> Back to Home</Link> */}
       <HomeNav />
-      <div className='relative bg-white m-auto p-10 mb-10 pb-32'>
-      <form className='p-10  flex flex-wrap' onSubmit={handleSubmit} ref={form}>
-        <div>
-        <label htmlFor="Id">UserId</label>
-        <input type="text" name='Id' id='Id' onChange={(e) => handleId(e.target.value)} className='border-2 m-5'/>
+      <div className='relative bg-gray-50 m-auto p-10 mb-10 pb-32'>
+      <form className='p-10' onSubmit={handleSubmit} ref={form}>
+        <div className='flex flex-col w-1/2 m-auto'>
+        <label htmlFor="Id">UserId:</label>
+        <input type="text" name='Id' id='Id' onChange={(e) => handleId(e.target.value)} className='bg-transparent border-b-2 h-8 m-5' placeholder='Your User ID'/>
         {(available)?<p>User Id Already Exists</p>:null}
         </div>
-        <div className='m-5'>
+        <div className='my-5 flex flex-col w-1/2 m-auto'>
         <label htmlFor="dob">Date-Of-Birth:</label>
         <input type="date" name='dob' id='dob' className='m-5'/>
         </div>
-        <div className='m-5'>
+        <div className='my-5 flex flex-col w-1/2 m-auto'>
         <label htmlFor="linkedin">LinkedIn Link:</label>
         <input type="text" name='linkedin' id='linkedin' className='border-2 m-5'/>
         </div>
-        <div className='m-5'>
+        <div className='my-5 flex flex-col w-1/2 m-auto'>
         <label htmlFor="github">GitHub Link:</label>
         <input type="text" name='github' id='github' className='border-2 m-5' />
         </div>
+        <div className='my-5 flex flex-col w-1/2 m-auto'>
         <select name="categories" id="categories" className='m-10'>
         <option value="">--Please choose an option--</option>
         {categories.map((category,index) => {
@@ -87,6 +85,7 @@ const Page = () => {
           <option key={index} value={category}>{category}</option>
         )})}
         </select>
+        </div>
     <Location />
     {available?
       <button type='' className='absolute bottom-10 cursor-not-allowed' disabled>Submit</button>:

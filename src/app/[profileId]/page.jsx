@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import {db} from '@/drizzle/index.ts';
-import {user} from '@/drizzle/schema.ts';
+import {db} from '@/drizzle/index';
+import {user} from '@/drizzle/schema';
 import { eq } from "drizzle-orm";
 import fetchUser from '@/app/api/Users/setDetails';
 import HomeNav from '@/app/(components)/HomeNav';
@@ -12,8 +12,8 @@ import GigPage from './GigPage';
 const page = async (props) => {
   const {params,searchParams} = props
   const User = await fetchUser();
-  const pages = ["About","Gigs"]
   const profile = await db.select().from(user).where(eq(params.profileId,user.userId));
+  const pages = ["About","Gigs"]
   const active = searchParams.active || "About";
   const isAuth = profile[0]?.email == User?.email;
   
