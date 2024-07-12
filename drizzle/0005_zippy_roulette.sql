@@ -1,1 +1,0 @@
-ALTER TABLE "user" ADD COLUMN "description" text DEFAULT 'Hello EveryOne! I am new to recrute.';

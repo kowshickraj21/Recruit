@@ -1,5 +1,5 @@
 import { sql, relations } from 'drizzle-orm';
-import { pgTable, text, timestamp, date, numeric, uuid } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, date, numeric, uuid, json } from "drizzle-orm/pg-core";
 
 export const user = pgTable("user", {
     name: text("name").notNull(),
@@ -38,6 +38,28 @@ export const gigs = pgTable("gigs",{
 export const gigsRelations = relations(gigs, ({ one }) => ({
   author: one(user, {
     fields: [gigs.email],
+    references: [user.email],
+  }),
+}));
+
+
+export const messages = pgTable("messages",{
+  sender: text('sender').notNull().references(() => user.email),
+  reciever: text("reciever").notNull().references(() => user.email),
+  message: text("message"),
+  sentAt: timestamp("sentAt").notNull().defaultNow()
+});
+
+export const senderRelations = relations(messages, ({ one }) => ({
+  sender: one(user, {
+    fields: [messages.sender],
+    references: [user.email],
+  }),
+}));
+
+export const recieverRelations = relations(messages, ({ one }) => ({
+  reciever: one(user, {
+    fields: [messages.reciever],
     references: [user.email],
   }),
 }));

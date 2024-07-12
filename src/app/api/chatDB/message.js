@@ -1,17 +1,10 @@
 "use server"
-import { connectMongoDB } from "@/models/mongodb";
-import ChatMessages from '@/models/chatMessages';
-export const storeMessage = async ({message,sender,reciever,messageSender}) => {
+import { db } from '@/drizzle/index'
+import { messages,user } from '@/drizzle/schema'
+import { and, eq, sql } from 'drizzle-orm';
+export const storeMessage = async ({message,sender,reciever}) => {
     try{
-        connectMongoDB();
-        const chatExists = await ChatMessages.findOne({sender:sender,reciever:reciever}) || await ChatMessages.findOne({sender:reciever,reciever:sender});
-        if(chatExists){
-            const updateMessage = await ChatMessages.findOneAndUpdate({_id: chatExists._id},{$push:{messages:{sender:messageSender,message:message}}})
-        }else{
-            const newMessage = [{sender:messageSender,message:message}]
-            const newChat = {sender:sender,reciever:reciever,messages:newMessage}
-            const newMembers = await ChatMessages.create(newChat)
-        }
+       await db.insert(messages).values({sender:sender,reciever:reciever,message:message});
     }catch(err){
         console.log(err)
     }
@@ -19,11 +12,9 @@ export const storeMessage = async ({message,sender,reciever,messageSender}) => {
 
 export const getMessages = async ({sender,reciever}) => {
     try{
-        connectMongoDB()
-        const chatExists = await ChatMessages.findOne({sender:sender,reciever:reciever}) || await ChatMessages.findOne({sender:reciever,reciever:sender});
-        if(chatExists){
-            return chatExists.messages
-        }
+        const db1 = await db.select().from(messages).where(sql`${messages.sender} = ${sender} and ${messages.reciever} = ${reciever}`);
+        const db2 = await db.select().from(messages).where(sql`${messages.sender} = ${reciever} and ${messages.reciever} = ${sender}`);
+        return (db1.concat(db2).sort((a,b) => a.sentAt - b.sentAt));
     }
     catch(e){
         console.log(e)

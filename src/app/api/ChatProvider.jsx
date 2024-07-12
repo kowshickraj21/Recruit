@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { useState,createContext,useContext } from "react";
 
 const ChatContext = createContext()

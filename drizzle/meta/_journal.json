@@ -5,43 +5,15 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1718265972624,
-      "tag": "0000_third_master_chief",
+      "when": 1720764957512,
+      "tag": "0000_tiresome_roland_deschain",
       "breakpoints": true
     },
     {
       "idx": 1,
       "version": "7",
-      "when": 1718274328885,
-      "tag": "0001_left_goblin_queen",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1718378980467,
-      "tag": "0002_worried_punisher",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1718514503683,
-      "tag": "0003_abnormal_omega_red",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1718610524148,
-      "tag": "0004_opposite_sphinx",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "7",
-      "when": 1720426823165,
-      "tag": "0005_zippy_roulette",
+      "when": 1720765659342,
+      "tag": "0001_red_ender_wiggin",
       "breakpoints": true
     }
   ]

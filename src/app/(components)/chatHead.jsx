@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link';
@@ -12,6 +13,7 @@ const ChatHead = ({picture}) => {
   const setOpen = UseToggleChat();
   const chat = UseChatMember();
   const setChat = UseSetChatMember();
+
 
 
   if(chat.name == null){ return (

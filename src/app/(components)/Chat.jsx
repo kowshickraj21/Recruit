@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import Image from 'next/image';
@@ -12,7 +12,7 @@ const Chat = (props) => {
   const [messages, setMessage] = useState([]);
   const [pastMessages, setPastMessage] = useState([]);
   const [input, setInput] = useState('');
-
+  console.log(chat)
   useEffect(() => {
     // Initialize socket only once when the component mounts
     const socket = io('http://localhost:3000/api/chat');
@@ -35,9 +35,9 @@ const Chat = (props) => {
   }, [email, chat.email]);
 
   const send = async () => {
-    socket.emit('client-message', { sender: name, message: input });
+    // socket.emit('client-message', { sender: name, message: input });
     setMessage((prevMessages) => [...prevMessages, { sender: name, message: input }]);
-    await storeMessage({ message: input, reciever: chat.email, sender: email, messageSender: name });
+    await storeMessage({ message: input, reciever: chat.email, sender: email});
     setInput('');
   };
 
@@ -47,8 +47,8 @@ const Chat = (props) => {
         {pastMessages?.map((message, index) => (
           <div key={index} className='py-2 hover:bg-slate-50 px-2'>
             <div className='flex space-x-2'>
-              <Image src={message.sender === name ? picture : chat.picture} width={30} height={20} className='rounded-full' alt='profile' />
-              <h2 className='font-semibold'>{message.sender}</h2>
+              <Image src={message.sender == email ? picture : chat.picture} width={30} height={20} className='rounded-full' alt='profile' />
+              <h2 className='font-semibold'>{(message.sender == email)?name:chat.name}</h2>
             </div>
             <p className='px-10 py-2'>{message.message}</p>
           </div>

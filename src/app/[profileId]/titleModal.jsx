@@ -10,13 +10,13 @@ const TitleModal = ({close,profile}) => {
   }
   return (
     <div className='absolute w-full h-svh bg-black bg-opacity-50 top-0 z-20 flex justify-center items-center'>
-      <div className='bg-gray-100 min-h-1/2 w-2/3 rounded-md flex flex-col'>
+      <div className='bg-gray-100 min-h-1/2 md:w-2/3 w-full rounded-md flex flex-col'>
       <div className='flex justify-between m-5'>
         <h2 className='text-xl font-semibold m-3'>Edit Title:</h2>
         <MdClose onClick={() => close(false)} className='hover:cursor-pointer text-xl'/>
       </div>
-      <input type='text' name="description" id="title" className='p-5 mx-10' placeholder='New Title' ref={text} defaultValue={profile.title} />
-      <button className='m-auto w-1/2 bg-secondry text-white h-10 my-8' onClick={() => handleChange()}>Add Changes</button>
+      <input type='text' name="description" id="title" className='px-5 py-2 md:mx-20 mx-10' placeholder='New Title' ref={text} defaultValue={profile.title} />
+      <button className='m-auto w-1/2 bg-secondry text-white h-10 my-8' onClick={() => handleChange()}>Edit Title</button>
       </div>
     </div>
   )

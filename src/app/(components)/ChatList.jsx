@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image';
 import React,{useState,useEffect} from 'react'
 import { FaCirclePlus } from "react-icons/fa6";
@@ -8,13 +9,13 @@ const ChatList = ({you}) => {
   const [members,setMembers] = useState([])
   const setChat = UseSetChatMember();
 
-  useEffect(() => {
-    const getList = async() => {
-      const data = await getChatList(you.email)
-      setMembers(data)
-    }
-    getList()
-  },[])
+  // useEffect(() => {
+  //   const getList = async() => {
+  //     const data = await getChatList(you.email)
+  //     setMembers(data)
+  //   }
+  //   getList()
+  // },[])
   return (
     <div className='h-96 overflow-y-auto'>
       {members?

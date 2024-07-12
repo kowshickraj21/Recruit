@@ -19,17 +19,17 @@ const GigCards = async ({profile}) => {
       const author = await db.select().from(user).where(eq(user.email,gig.email));
 
       return (
-      <Link href={`/Gigs/${gig.gigId}`} key={index} className={`m-8 min-w-20 border rounded-2xl shadow-md hover:shadow-2xl cursor-pointer bg-white ${profile?'lg:w-1/4 w-4/5':'lg:w-1/5 w-4/5'}`}>
+      <Link href={`/Gigs/${gig.gigId}`} key={index} className={`m-8 min-w-20 border rounded-2xl shadow-md hover:shadow-2xl cursor-pointer h-80 bg-white ${profile?'lg:w-1/4 w-4/5':'lg:w-1/5 w-4/5'}`}>
           
           <Image src={gig.image} width={300} height={100} alt="Gig Image" className='object-fit rounded-xl w-full h-36 '/>
           
-          <div className='flex flex-col justify-between'>
+          <div className='flex justify-between flex-col h-1/2'>
             <div className='flex align-middle mt-2 mx-2 p-2'>
             <Image src={author[0]?.picture} width={30} height={25} alt='profile' className='rounded-full m-1 h-auto w-auto' />
             <p className='text-sm pt-2 px-1 font-semibold hover:underline'>{author[0]?.name}</p>
             </div>
 
-            <p className='p-2 px-5 hover:underline'>{gig.title}</p>
+            <p className=' px-5 hover:underline'>{gig.title}</p>
             
             <div className='flex flex-row justify-between'>
               <p className='py-2 text-base px-3 flex flex-row align-middle font-semibold'><FaStar className='w-8 mt-0.5' /> 5.0</p>
