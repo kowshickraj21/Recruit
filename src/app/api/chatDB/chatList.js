@@ -1,13 +1,15 @@
 "use server"
-import { connectMongoDB } from "@/models/mongodb";
-import ChatMessages from '@/models/chatMessages';
-import User from '@/models/user';
+import { db } from '@/drizzle/index';
+import { messages,user } from '@/drizzle/schema';
+import { sql,inArray } from 'drizzle-orm';
 
-export async function getChatList(user){
-    await connectMongoDB()
-    const members = await ChatMessages.find({$or:[{sender:user},{reciever:user}]})
-    const emails = members.map(member => member.sender === user ? member.receiver : member.sender);
-    const users = await User.find({ email: { $in: emails } });
-    const userData = users.map(user => JSON.parse(JSON.stringify(user)))
-    return userData
+export async function getChatList(User){
+    const data = await db.selectDistinct({reciever : messages.reciever,sender : messages.sender}).from(messages).where(sql`${User} = ${messages.sender} or ${User} = ${messages.reciever}`)
+    const members = new Set();
+    data.map((data) => {
+        if(data.reciever == User) members.add(data.sender);
+        else members.add(data.reciever);
+    })
+    const userDetails = await db.select().from(user).where(inArray(user.email, Array.from(members)));
+    return userDetails;
 }

@@ -9,13 +9,14 @@ const ChatList = ({you}) => {
   const [members,setMembers] = useState([])
   const setChat = UseSetChatMember();
 
-  // useEffect(() => {
-  //   const getList = async() => {
-  //     const data = await getChatList(you.email)
-  //     setMembers(data)
-  //   }
-  //   getList()
-  // },[])
+  useEffect(() => {
+    const getList = async() => {
+      const data = await getChatList(you.email)
+      setMembers(data)
+    }
+    getList()
+  },[])
+  
   return (
     <div className='h-96 overflow-y-auto'>
       {members?
