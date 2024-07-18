@@ -2,10 +2,11 @@
  
 import { UploadButton } from "@/utils/uploadthing";
  
-export default function Home({ func }) {
+export default function Home({ func,wait }) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex flex-col items-center justify-between p-24" onClick={() => wait()}>
       <UploadButton
+      className="flex "
         endpoint="imageUploader"
         onClientUploadComplete={(res) => {
           func(res[0].url);

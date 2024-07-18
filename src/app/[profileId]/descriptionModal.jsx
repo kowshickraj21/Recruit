@@ -10,7 +10,7 @@ const DescriptionModal = ({close,description,profile}) => {
   }
   return (
     <div className='absolute w-full h-svh bg-black bg-opacity-50 top-0 z-20 flex justify-center items-center'>
-      <div className='bg-gray-100 min-h-1/2 w-2/3 rounded-md flex flex-col'>
+      <div className='bg-gray-100 min-h-1/2 lg:w-2/3 w-full rounded-md flex flex-col'>
       <div className='flex justify-between m-5'>
         <h2 className='text-xl font-semibold m-3'>Edit Description:</h2>
         <MdClose onClick={() => close(false)} className='hover:cursor-pointer text-xl'/>

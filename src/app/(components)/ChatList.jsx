@@ -16,9 +16,9 @@ const ChatList = ({you}) => {
     }
     getList()
   },[])
-  
+
   return (
-    <div className='h-96 overflow-y-auto'>
+    <div className='lg:h-96 overflow-y-auto h-svh w-full'>
       {members?
       <div className='w-full h-full'>
       {members.map((member,index) => {

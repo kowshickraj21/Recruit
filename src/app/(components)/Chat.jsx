@@ -13,6 +13,7 @@ const Chat = (props) => {
   const [pastMessages, setPastMessage] = useState([]);
   const [input, setInput] = useState('');
   console.log(chat)
+  
   useEffect(() => {
     // Initialize socket only once when the component mounts
     const socket = io('http://localhost:3000/api/chat');
