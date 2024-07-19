@@ -5,12 +5,13 @@ import fetchUser from '../api/Users/setDetails';
 import Link from 'next/link';
 import { db } from '@/drizzle/index';
 import { user,gigs } from '@/drizzle/schema';
-import { eq,not } from 'drizzle-orm';
+import { eq,not, like } from 'drizzle-orm';
 
 
-const GigCards = async ({profile}) => {
+const GigCards = async ({ profile,search }) => {
   const auth = await fetchUser();
-  const gigList = (profile)?await db.select().from(gigs).where(eq(gigs.email,profile.email)):await db.select().from(gigs).where(not(eq(gigs.email,auth.email)));
+  const gigList = (profile)?await db.select().from(gigs).where(eq(gigs.email,profile.email)):
+  (search)?await await db.select().from(gigs).where(like(gigs.title, `%${search}%`)):await db.select().from(gigs).where(not(eq(gigs.email,auth.email)));
 
   return (
     <div className='flex w-full sm:flex-row flex-col items-center'>

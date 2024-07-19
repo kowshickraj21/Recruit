@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { IoCartOutline,IoSearch,IoClose } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import Notification from './notification';
-import search from '@/app/api/search/index'
+// import search from '@/app/api/search/index'
 
 const HomeNav = (props) => {
   const [open,setOpen] = useState(false);
@@ -16,7 +16,7 @@ const HomeNav = (props) => {
         <Link href="/" className='ml-5 pr-5'>logo</Link>
       <div className=" w-3/5 lg:flex hidden flex-row border rounded-md">
         <input type="text" className=' p-3 w-11/12 placeholder: text-innerText pl-7' placeholder='Search for Freelancers' value={searchTitle} onChange={(e) => setSearch(e.target.value)}/>
-        <button className='w-1/12 flex justify-center items-center border-l-2 bg-secondry text-white' onClick={() => search(searchTitle)}><FaSearch /></button>
+        <Link href={`/?s=${searchTitle}`} className='w-1/12 flex justify-center items-center border-l-2 bg-secondry text-white'><FaSearch /></Link>
       </div>
       <ul className="pl-10 list-none flex flex-row items-center ">
         <li className='lg:hidden p-2' onClick={() => setOpen(true)}><IoSearch className='w-7 h-7'/></li>
