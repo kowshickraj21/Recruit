@@ -4,7 +4,7 @@ import DefaultPage from './(components)/DefaultPage';
 import HomePage from './(components)/HomePage';
 
 export default async function Home ({searchParams}) {
-  const { s } = searchParams
+  const { s,t } = searchParams
   const session = await getServerSession(options)
   return (
     <div>

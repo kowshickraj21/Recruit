@@ -47,3 +47,15 @@ input::-webkit-inner-spin-button {
       transform: rotate(-45deg) translate(10px, 10px);
   }
 }
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.truncate-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

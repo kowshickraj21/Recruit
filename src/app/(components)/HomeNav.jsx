@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { IoCartOutline,IoSearch,IoClose } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import Notification from './notification';
-// import search from '@/app/api/search/index'
 
 const HomeNav = (props) => {
   const [open,setOpen] = useState(false);

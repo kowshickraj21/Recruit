@@ -1,8 +1,10 @@
 export const categories = [
     "3D Design",
     "Animation",
+    "App Development",
     "Business",
     "Content Management",
+    "Consulting",
     "Fashion",
     "Finance",
     "Graphic Design",
@@ -11,4 +13,6 @@ export const categories = [
     "Personal Branding",
     "Sports",
     "Software",
+    "Video Editing",
+    "Web Development",
 ]
