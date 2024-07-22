@@ -5,6 +5,7 @@ import {user} from '@/drizzle/schema';
 import { eq } from "drizzle-orm";
 import fetchUser from '@/app/api/Users/setDetails';
 import HomeNav from '@/app/(components)/HomeNav';
+import Nav from '../(components)/Nav';
 import ProfileCard from './ProfileCard';
 import AboutPage from './AboutPage';
 import GigPage from './GigPage';
@@ -19,7 +20,8 @@ const page = async (props) => {
   
   return (
     <div className='bg-gray-50 min-h-svh'>
-      <HomeNav picture={User?.picture} id={User?.userId} />
+      {User?<HomeNav picture={User?.picture} id={User?.userId} />:
+      <Nav />}
       <div>
       <div className='bg-gray-200 h-72 w-full m-auto' />
 

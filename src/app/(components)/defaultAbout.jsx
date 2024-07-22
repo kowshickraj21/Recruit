@@ -10,7 +10,7 @@ import { GiAchievement } from "react-icons/gi";
 const DefaultAbout = () => {
   return (
     <div>
-      <div className='w-full m-auto h-72 bg-black text-white text-center'>
+      <div className='w-full m-auto h-72 bg-black bg-opacity-90 text-white text-center'>
         <h3 className='pt-10 pb-3 text-3xl font-semibold'>Find Your Next Great Job Opportunity</h3>
         <p className='text-xs opacity-55'>Subsribe to our NewsLetter to not miss any updates on new Job listings.</p>
         <div className='mt-10 flex items-center justify-center'>
@@ -23,7 +23,7 @@ const DefaultAbout = () => {
             <div className='relative w-1/3 h-3/4'>
               <Image src={freelancer1} alt="freelancer" fill className='object-cover'/>
             </div>
-            <div className='w-1/3 text-4xl font-extrabold pr-4'>
+            <div className='w-1/3 text-4xl font-bold pr-4'>
                 Worldwide Best Platform For Job Seekers 
                 <div className='flex flex-wrap mt-14 gap-y-10'>
                   <div className='w-1/2 h-auto'>

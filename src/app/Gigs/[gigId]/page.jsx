@@ -11,6 +11,7 @@ import { db } from '@/drizzle/index';
 import { user,gigs } from '@/drizzle/schema';
 import { eq } from 'drizzle-orm';
 import Reviews from './reviews';
+import Nav from '@/app/(components)/Nav';
 
 const page = async (props) => {
     const auth = await fetchUser(); 
@@ -19,7 +20,9 @@ const page = async (props) => {
 
   return (
     <div className=''>
-      <HomeNav picture={auth?.picture} id={auth?.userId}/>
+
+      {auth?<HomeNav picture={auth?.picture} id={auth?.userId}/>:
+      <Nav />}
       <div className='flex lg:flex-row-reverse flex-col justify-evenly mt-10'>
       <div className='lg:w-2/5 w-full lg:h-svh lg:sticky lg:top-20'>
         <div className='w-full lg:h-96 h-72 md:h-80 relative overflow-hidden bg-gray-100 mr-5' >
@@ -59,7 +62,7 @@ const page = async (props) => {
         </div>
 
       </div>
-     <ChatBox picture={auth.picture} name={auth.name} email={auth.email}/>
+     {auth?<ChatBox picture={auth.picture} name={auth.name} email={auth.email}/>:null}
     </div>
   )
 }

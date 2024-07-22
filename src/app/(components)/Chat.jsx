@@ -12,33 +12,31 @@ const Chat = (props) => {
   const [messages, setMessage] = useState([]);
   const [pastMessages, setPastMessage] = useState([]);
   const [input, setInput] = useState('');
-  console.log(chat)
+  const socket = io();
+  socket.connect();
+  console.log(socket.connected)
+
+  socket.on("connect",() => {
+    console.log("connect")
+  })
   
   useEffect(() => {
-    // Initialize socket only once when the component mounts
-    const socket = io('http://localhost:3000/api/chat');
-
     const getChat = async () => {
       const pastMessage = await getMessages({ sender: email, reciever: chat.email });
       setPastMessage(pastMessage);
     };
     getChat();
+  }, []);
 
-    socket.on('chat-message', (data) => {
-      setMessage((prevMessages) => [...prevMessages, { sender: data.sender, message: data.message }]);
-    });
-
-    return () => {
-      // Clean up the socket connection when the component unmounts
-      socket.off('chat-message');
-      socket.disconnect();
-    };
-  }, [email, chat.email]);
+  socket.on('chat-message', (data) => {
+    console.log(data);
+    setMessage((prevMessages) => [...prevMessages, { sender: data.sender, message: data.message }]);
+  });
 
   const send = async () => {
-    // socket.emit('client-message', { sender: name, message: input });
+    socket.emit('client-message', { sender: name, message: input });
     setMessage((prevMessages) => [...prevMessages, { sender: name, message: input }]);
-    await storeMessage({ message: input, reciever: chat.email, sender: email});
+    storeMessage({ message: input, reciever: chat.email, sender: email});
     setInput('');
   };
 
