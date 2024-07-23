@@ -11,8 +11,8 @@ const ChatButton = () => {
   const setChat = UseSetChatMember();
 
   return (
-      <div className='md:hidden w-auto flex justify-center items-center' >
-      <MdOutlineMessage className='h-10 w-10 text-white mx-3 mt-2 pt-2'/>
+      <div className={`${open?'hidden':''} md:hidden absolute bottom-8 right-5 bg-secondry rounded-full h-14 w-14 flex justify-center items-center`} >
+      <MdOutlineMessage className='h-10 w-10 text-white mx-3 mt-1'/>
       </div>
   )
 }

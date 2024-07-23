@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
 import Chat from './Chat'
-import ChatButton from '@/app/(components)/chatButton'
 // import { io } from "socket.io-client";
 import { UseChat,UseToggleChat } from '../api/ChatProvider';
 import ChatHead from './chatHead'
@@ -22,12 +21,8 @@ const ChatBox = (props) => {
   // }
   
   return (
-    <div className='fixed md:bottom-0 bottom-10 md:right-5 right-8 w-1/4 flex md-block justify-end'>
-    <div className='md:hidden bg-secondry rounded-full h-14 w-14 absolute bottom-5' onClick={() => setOpen()}>
-      <ChatButton />
-    </div>
-
-    <div className='md:block hidden bg-white rounded-t-lg shadow-lg shadow-innerText w-full'>
+    <div className={`fixed bottom-0 ${open?'h-svh':''} lg:h-auto right-0 w-full lg:w-1/4 flex md-block justify-end z-20`}>
+    <div className='bg-white rounded-t-lg shadow-lg shadow-innerText w-full'>
     <ChatHead picture={props.picture}/>
     {(open && chat.name)?<Chat you={props} />:open?<ChatList you={props}/>:null}
     </div>

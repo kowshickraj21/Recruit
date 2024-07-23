@@ -7,6 +7,7 @@ import { UseChat,UseToggleChat } from '../api/ChatProvider';
 import { UseChatMember,UseSetChatMember } from '../api/ChatProvider';
 import { IoMdArrowBack } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import ChatButton from '@/app/(components)/chatButton'
 
 const ChatHead = ({picture}) => {
     const open = UseChat();
@@ -17,8 +18,9 @@ const ChatHead = ({picture}) => {
 
 
   if(chat.name == null){ return (
-    <div className='h-12 cursor-pointer border-b' onClick={() => setOpen()}>
-    <div className='flex pt-2 ml-3 justify-between'>
+    <div className='bottom-10 lg:h-12 cursor-pointer lg:border-b' onClick={() => setOpen()}>
+      <ChatButton />
+    <div className={`${open?'flex':'hidden'} lg:flex pt-2 ml-3 justify-between`}>
       <div className='flex'>
       <Image src={picture} width={30} height={20} className='rounded-full' alt='profile'/>
       <h2 className='mx-3 mt-1 font-semibold opacity-85'>Messages</h2>
@@ -28,7 +30,7 @@ const ChatHead = ({picture}) => {
     </div>
   )}else{
     return (
-        <div className='h-12 border-b'>
+        <div className='block h-12 border-b'>
         <div className='flex h-full ml-3 justify-between items-center'>
           <div className='flex items-center'>
           <IoMdArrowBack className='mr-2 text-2xl cursor-pointer' onClick={() => setChat({})}/>
