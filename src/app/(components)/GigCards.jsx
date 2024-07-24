@@ -21,7 +21,7 @@ const GigCards = async ({ profile,search }) => {
       return (
       <Link href={`/Gigs/${gig.gigId}`} key={index} className={`m-8 min-w-20 border rounded-2xl flex flex-col justify-between shadow-md hover:shadow-2xl cursor-pointer h-80 bg-white ${profile?'lg:w-1/4 w-4/5':'lg:w-1/5 w-3/5'}`}>
           
-          <Image src={gig.image} width={300} height={100} alt="Gig Image" className='object-fit rounded-xl w-full h-36 '/>
+          <Image src={gig.image} width={300} height={100} alt="Gig Image" className='object-fit rounded-xl w-full h-36 ' priority={false}/>
           
           <div className='flex justify-between flex-col h-full'>
             <div className='flex align-middle mt-2 mx-2 p-2'>

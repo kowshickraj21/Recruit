@@ -3,14 +3,14 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <div className='w-full justify-between m-auto h-96 bg-black bg-opacity-90 text-white text-center flex p-20'>
+    <div className='w-full justify-between m-auto md:h-96 bg-black bg-opacity-90 text-white text-center md:flex md:p-20 p-5'>
       <div className=''>
-        <h2 className='text-3xl font-bold'>Recrute.in</h2>
+        <h2 className='md:text-3xl text-2xl font-bold'>Recrute.in</h2>
       </div>
-      <div className='flex gap-16 mr-5'>
-        <div>
-        <h2 className='text-2xl pb-5 font-medium'>Categories</h2>
-        <div className='text-left'>
+      <div className='md:flex md:gap-16 mr-5'>
+        <div className='mt-7 md:mt-0'>
+        <h2 className='md:text-2xl text-xl md:pb-5 pb-2 font-medium'>Categories</h2>
+        <div className='md:text-left'>
         <p className='p-1'>Art</p>
         <p className='p-1'>Accounting</p>
         <p className='p-1'>Crypto</p>
@@ -19,15 +19,17 @@ const Footer = () => {
         <p className='p-1'>Support</p>
         </div>
         </div>
-        <div>
-        <h2 className='text-2xl font-medium pb-5 text-left'>Services</h2>
-        <div className='text-left flex flex-col'>
+        <div className='mt-7 md:mt-0'>
+        <h2 className='md:text-2xl text-xl font-medium md:pb-5 pb-2 md:text-left'>Services</h2>
+        <div className=' md:text-left flex flex-col'>
         <Link href={"/login"} className='p-1'>Freelance</Link>
-        <Link href={"/signup"} className='p-1'>Hire a Proffesional</Link>
+        <Link href={"/signup"} className='p-1'>Hire a professional</Link>
         </div>
         </div>
-        <div>
-          {/* <h2>Contact</h2> */}
+        <div className='mt-7 md:mt-0'>
+          <h2 className='md:text-2xl text-xl font-medium md:pb-5 pb-2'>Contact</h2>
+          <p>email:recrute@gmail.com</p>
+          <p>phone:+987654321</p>
         </div>
       </div>
       </div>

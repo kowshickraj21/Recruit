@@ -19,11 +19,11 @@ const DefaultAbout = () => {
         </div>
       </div>
       <div className='w-full h-auto bg-blue-50 bg-opacity-10'>
-        <div className='flex w-full justify-center gap-20 pt-10 h-svh m-auto items-center'>
-            <div className='relative w-1/3 h-3/4'>
+        <div className='flex flex-col md:flex-row w-full justify-center gap-20 pt-10 h-svh m-auto items-center'>
+            <div className='relative md:w-1/3 w-2/3 h-3/4'>
               <Image src={freelancer1} alt="freelancer" fill className='object-cover'/>
             </div>
-            <div className='w-1/3 text-4xl font-bold pr-4'>
+            <div className='md:w-1/3 w-full ml-5 md:text-4xl text-3xl font-bold pr-4'>
                 Worldwide Best Platform For Job Seekers 
                 <div className='flex flex-wrap mt-14 gap-y-10'>
                   <div className='w-1/2 h-auto'>
@@ -57,15 +57,15 @@ const DefaultAbout = () => {
                 </div>
             </div>
         </div>
-        <div className='flex w-full justify-center gap-20 h-svh m-auto pt-20'>
-        <div className='w-1/3'>
-                <h3 className='text-4xl font-bold leading-relaxed'>Build Your Recrute Profile,</h3>
-                <h3 className='text-4xl font-bold leading-relaxed'>Get Hired</h3> 
-                <p className='pt-6'> Sign up on Recrute.in today and create your profile to get noticed by top recruiters! Showcase your skills to attract potential employers. By creating gigs based on your unique skill set, you can highlight your strengths and connect with clients looking for your specific talents.</p>
-                <p className='pt-6'>Whether you&apos;re a seasoned professional or just starting, Recrute.in is the platform for everyone. Don&apos;t wait, Join now and start building your professional network!</p>
+        <div className='flex md:flex-row flex-col w-full justify-center gap-20 h-svh m-auto pt-20'>
+        <div className='md:w-1/3 w-full px-5 md:px-0'>
+                <h3 className='md:text-4xl text-3xl font-bold leading-relaxed'>Build Your Recrute Profile,</h3>
+                <h3 className='md:text-4xl text-3xl font-bold leading-relaxed'>Get Hired</h3> 
+                <p className='pt-6 hidden md:block'> Sign up on Recrute.in today and create your profile to get noticed by top recruiters! Showcase your skills to attract potential employers. By creating gigs based on your unique skill set, you can highlight your strengths and connect with clients looking for your specific talents.</p>
+                <p className='pt-6 text-xs md:text-base'>Whether you&apos;re a seasoned professional or just starting, Recrute.in is the platform for everyone. Don&apos;t wait, Join now and start building your professional network!</p>
                 <button className='bg-secondry h-12 px-5 text-white rounded-md mt-10'>Create a Profile</button>
             </div>
-            <div className='relative w-1/3 h-3/4'>
+            <div className='relative md:w-1/3 w-full h-3/4'>
               <Image src={freelancer2} alt="freelancer" fill className='object-cover'/>
             </div>
         </div>
