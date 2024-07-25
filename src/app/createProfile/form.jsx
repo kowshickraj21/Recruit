@@ -58,24 +58,24 @@ const Form = () => {
   return (
     <div>
        <form className='p-10' onSubmit={handleSubmit} ref={form}>
-        <div className='flex flex-col w-1/2 m-auto'>
+        <div className='flex flex-col lg:w-1/2 w-full m-auto'>
         <label htmlFor="Id">UserId:</label>
         <input type="text" name='Id' id='Id' onChange={(e) => handleId(e.target.value)} className='bg-transparent border-b-2 h-8 m-5' placeholder='Your User ID'/>
         {(available)?<p className='text-red-500 text-sm -mt-2 ml-5'>*User Id Already Exists*</p>:null}
         </div>
-        <div className='my-5 flex flex-col w-1/2 m-auto'>
+        <div className='my-5 flex flex-col lg:w-1/2 w-full m-auto'>
         <label htmlFor="dob">Date-Of-Birth:</label>
         <input type="date" name='dob' id='dob' className='m-5 bg-transparent border-b-2 h-8'/>
         </div>
-        <div className='my-5 flex flex-col w-1/2 m-auto'>
+        <div className='my-5 flex flex-col lg:w-1/2 w-full m-auto'>
         <label htmlFor="linkedin">LinkedIn:</label>
         <input type="text" name='linkedin' id='linkedin' className='m-5 bg-transparent border-b-2 h-8' placeholder='Your LinkedIn profile'/>
         </div>
-        <div className='my-5 flex flex-col w-1/2 m-auto'>
+        <div className='my-5 flex flex-col lg:w-1/2 w-full m-auto'>
         <label htmlFor="github">GitHub:</label>
         <input type="text" name='github' id='github' className='m-5 bg-transparent border-b-2 h-8' placeholder='Your GitHub profile'/>
         </div>
-        <div className='my-5 flex flex-col w-1/2 m-auto'>
+        <div className='my-5 flex flex-col lg:w-1/2 w-full m-auto'>
         <label htmlFor="categories">Category:</label>
         <select name="categories" id="categories" className='m-5 bg-transparent border-b-2 h-8'>
         <option value="">--Please choose an option--</option>
@@ -85,7 +85,7 @@ const Form = () => {
         )})}
         </select>
         </div>
-      <div className='my-5 w-1/2 m-auto'>
+      <div className='my-5 lg:w-1/2 w-full m-auto'>
     <Location />
     </div>
     {available?
@@ -93,7 +93,7 @@ const Form = () => {
       <button type='' className='absolute bottom-10 cursor-not-allowed bg-secondry left-1/2 -translate-x-1/2 text-white px-10 py-3' disabled>Loading...</button>:
       <button type='submit' className='absolute bottom-10 bg-secondry left-1/2 -translate-x-1/2 text-white px-10 py-3' >Create Profile</button>}
       </form>
-      <div className='w-1/2 m-auto'>
+      <div className='lg:w-1/2 w-full m-auto'>
           <p>Tags:</p>
         <div className='border-2 w-full min-h-20 flex flex-row flex-wrap flex-initial bg-white'>
           <ul className='flex flex-row flex-wrap bg-white'>

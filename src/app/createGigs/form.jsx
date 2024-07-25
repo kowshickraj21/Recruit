@@ -29,35 +29,35 @@ const Form = () => {
       console.log(wait);
     }
   return (
-    <form onSubmit={handleForm} className='flex flex-col w-2/3 m-auto' ref={form}>
+    <form onSubmit={handleForm} className='flex flex-col w-2/3 m-auto text-sm lg:text-base' ref={form}>
           <label htmlFor="title" className='my-5'>Gig Title:</label>
           <input type="text" name="title" id="title" maxLength='100' className='border-b-2 bg-transparent h-10 pl-5 ' placeholder='Enter your Gig Title' required/>
 
           <label htmlFor="description" className='my-5'>Gig Description:</label>
           <textarea name="description" id="description" cols="50" rows="7" maxLength='1000' className='border-b-2 bg-transparent p-5' placeholder='Tell us about what are you going to do' required/>
           
-          <div className='flex flex-row gap-16 mt-10'>
+          <div className='flex flex-col lg:flex-row lg:gap-16 gap-5 mt-10'>
           <div>
           <label htmlFor="hourly" className='my-5'>Hourly Rate:</label>
           <p>$<input type="number" name="hourly" id="hourly" className='border-b-2 bg-transparent h-10 mx-5 w-44 p-2' placeholder='Hourly Rate' required/>/hr</p>
           </div>
           <div>
           <label htmlFor="projectly" className='my-5'>Price:</label>
-          <p>$<input type="number" name="projectly" id="projectly" className='border-b-2 bg-transparent h-10 mx-5 w-44 p-2' placeholder='Price' required/>/Gig Order</p>
+          <p className='flex'>$<input type="number" name="projectly" id="projectly" className='border-b-2 bg-transparent h-10 mx-5 w-44 p-2' placeholder='Price' required/>/Gig Order</p>
           </div>
           <div>
           <label htmlFor="fastDelivery" className='my-5'>Fast Delivery:</label>
           <p>$<input type="number" name="delivery" id="delivery" className='border-b-2 bg-transparent h-10 mx-5 w-44 p-2' placeholder='Fast Delivery' required/></p>
           </div>
           </div>
-
+          <div>
           <FileUpload func={(text) => handleUpload(text)} wait={() => handleWait()}/>
-          
+          </div>
           <p className='text-red-500 font-semibold text-center mb-5'>{warning}</p>
           {wait?
-          <button type="" className='border-2 border-secondry text-white bg-secondry opacity-50 font-medium h-10 w-1/2 m-auto shadow-xl active:shadow-none' disabled>Loading...</button>
+          <button type="" className='border-2 border-secondry text-white bg-secondry opacity-50 font-medium h-10 w-1/2 m-auto shadow-xl active:shadow-none mb-5' disabled>Loading...</button>
           :
-          <button type="submit" className='border-2 border-secondry text-white bg-secondry font-medium h-10 w-1/2 m-auto shadow-xl active:shadow-none'>Create Gig</button>
+          <button type="submit" className='border-2 border-secondry text-white bg-secondry font-medium h-10 w-1/2 m-auto shadow-xl active:shadow-none mb-5'>Create Gig</button>
           }          
         </form>
   )

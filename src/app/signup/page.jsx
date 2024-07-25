@@ -35,8 +35,8 @@ const Page = () => {
 
   return (
     <div className='w-full h-svh bg-gray-100 flex items-center justify-center font-sans'>
-    <div className='m-auto flex flex-col items-center bg-white lg:w-1/4 w-3/4 py-10 rounded-md'>
-      <h2 className='my-5 text-2xl font-semibold'>Create a New Account</h2>
+    <div className='m-auto flex flex-col items-center bg-white lg:w-1/4 w-5/6 lg:py-10 py-5 px-5 lg:px-0 rounded-md'>
+      <h2 className='my-5 lg:text-2xl text-xl font-semibold'>Create a New Account</h2>
       <form className='flex flex-col items-center' onSubmit={() => handleSubmit()}>
         <input type="text" name="name" id='name' onChange={handleChange} required={true} placeholder='Full Name' className='border m-3 p-2 pr-10'/>
         <input type="email" name="email" id='email' onChange={handleChange} required={true} placeholder='Email' className='border m-3 p-2 pr-10'/>

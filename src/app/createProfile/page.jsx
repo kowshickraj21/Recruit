@@ -11,7 +11,7 @@ const Page = async() => {
     <div className='w-full h-full bg-gray-100'>
       <HomeNav picture={User.picture} id={User.userId}/>
       <div className='relative m-auto p-10 pb-32'>
-        <h1 className='text-center font-semibold text-4xl'>Create Your <span className='text-secondry'>Recrute</span> Profile</h1>
+        <h1 className='text-center font-semibold md:text-4xl text-2xl'>Create Your <span className='text-secondry'>Recrute</span> Profile</h1>
         <Form />
     </div>
     </div>
