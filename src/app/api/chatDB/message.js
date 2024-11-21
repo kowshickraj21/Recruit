@@ -1,22 +1,29 @@
-"use server"
-import { db } from '@/drizzle/index'
-import { messages,user } from '@/drizzle/schema'
-import { and, eq, sql } from 'drizzle-orm';
-export const storeMessage = async ({message,sender,reciever}) => {
-    try{
-       await db.insert(messages).values({sender:sender,reciever:reciever,message:message});
-    }catch(err){
-        console.log(err)
-    }
-}
+import { db } from '@/drizzle/index';
+import { messages } from '@/drizzle/schema';
+import { and,eq } from 'drizzle-orm';
 
-export const getMessages = async ({sender,reciever}) => {
-    try{
-        const db1 = await db.select().from(messages).where(sql`${messages.sender} = ${sender} and ${messages.reciever} = ${reciever}`);
-        const db2 = await db.select().from(messages).where(sql`${messages.sender} = ${reciever} and ${messages.reciever} = ${sender}`);
-        return (db1.concat(db2).sort((a,b) => a.sentAt - b.sentAt));
+export const storeMessage = async (message, sender, receiver, res) => {
+  console.log(message, sender, receiver)
+  console.log("Receiver:",receiver)
+  try {
+    await db.insert(messages).values({
+      sender: sender,
+      reciever: receiver,
+      message: message,
+    });
+  } catch (err) {
+    console.error('Error storing message:', err);
+  }
+};
+
+export const getMessages = async ( sender, reciever ) => {
+    try {
+      const db1 = await db.select().from(messages).where(and(eq(messages.sender, sender), eq(messages.reciever, reciever)));
+      const db2 = await db.select().from(messages).where(and(eq(messages.sender, reciever), eq(messages.reciever, sender)));
+      console.log(console.log(sender,reciever))
+      return db1.concat(db2).sort((a, b) => new Date(a.sentAt) - new Date(b.sentAt));
+      
+    } catch (e) {
+      console.log(e);
     }
-    catch(e){
-        console.log(e)
-    }
-}
+  };

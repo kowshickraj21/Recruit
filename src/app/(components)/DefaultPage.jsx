@@ -23,9 +23,9 @@ const DefaultPage = () => {
       </form>
     </main>
      <div className='bg-blue-50 bg-opacity-30 pt-10'>
-      <h1 className="text-center text-4xl font-semibold pt-10 pb-5">Browse Popular Jobs</h1>
-      <p className="text-center opacity-65">We have listed our top and demanding jobs according to our audience demand.</p>
-      <p className="text-center opacity-65">Popular jobs may change depending upon the time of the market.</p>
+      <h1 className="text-center lg:text-4xl text-2xl font-semibold pt-10 pb-5">Browse Popular Jobs</h1>
+      <p className="text-center lg:text-base text-sm opacity-65 md:px-0 px-8">We have listed our top and demanding jobs according to our audience demand.</p>
+      <p className="text-center lg:text-base text-sm opacity-65 md:px-0 px-8 mt-2">Popular jobs may change depending upon the time of the market.</p>
       <div className='flex flex-col md:flex-row w-5/6 m-auto justify-around items-center py-20'>
 
         <div className='md:w-1/5 w-2/3 my-4 h-64 rounded-xl p-3 bg-white shadow-2xl'>

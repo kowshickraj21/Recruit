@@ -1,0 +1,111 @@
+{
+  "id": "eabbf868-42a4-47f4-9ed1-33d8e4099f80",
+  "prevId": "320ed15f-75f7-4b7c-9ef2-b788957ac23f",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.user": {
+      "name": "user",
+      "schema": "",
+      "columns": {
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "password": {
+          "name": "password",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "picture": {
+          "name": "picture",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DOB": {
+          "name": "DOB",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LinkedIn": {
+          "name": "LinkedIn",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "GitHub": {
+          "name": "GitHub",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Country": {
+          "name": "Country",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "state": {
+          "name": "state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Category": {
+          "name": "Category",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tags1": {
+          "name": "tags1",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'{}'::text[]"
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

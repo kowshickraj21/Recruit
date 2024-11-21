@@ -1,0 +1,252 @@
+{
+  "id": "0a8393e8-226b-42b8-b529-7703f3ea3003",
+  "prevId": "7ee8b551-d0fa-4b0f-9553-ce9bd8e8a72d",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.gigs": {
+      "name": "gigs",
+      "schema": "",
+      "columns": {
+        "uuid1": {
+          "name": "uuid1",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "delivery": {
+          "name": "delivery",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hourly": {
+          "name": "hourly",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "projectly": {
+          "name": "projectly",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image": {
+          "name": "image",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "gigs_email_user_email_fk": {
+          "name": "gigs_email_user_email_fk",
+          "tableFrom": "gigs",
+          "tableTo": "user",
+          "columnsFrom": [
+            "email"
+          ],
+          "columnsTo": [
+            "email"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.messages": {
+      "name": "messages",
+      "schema": "",
+      "columns": {
+        "sender": {
+          "name": "sender",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reciever": {
+          "name": "reciever",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "message": {
+          "name": "message",
+          "type": "json",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "messages_sender_user_email_fk": {
+          "name": "messages_sender_user_email_fk",
+          "tableFrom": "messages",
+          "tableTo": "user",
+          "columnsFrom": [
+            "sender"
+          ],
+          "columnsTo": [
+            "email"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "messages_reciever_user_email_fk": {
+          "name": "messages_reciever_user_email_fk",
+          "tableFrom": "messages",
+          "tableTo": "user",
+          "columnsFrom": [
+            "reciever"
+          ],
+          "columnsTo": [
+            "email"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.user": {
+      "name": "user",
+      "schema": "",
+      "columns": {
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "password": {
+          "name": "password",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "picture": {
+          "name": "picture",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "DOB": {
+          "name": "DOB",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "LinkedIn": {
+          "name": "LinkedIn",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "GitHub": {
+          "name": "GitHub",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Country": {
+          "name": "Country",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "state": {
+          "name": "state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Category": {
+          "name": "Category",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tags1": {
+          "name": "tags1",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'{}'::text[]"
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "provider": {
+          "name": "provider",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'Hello EveryOne! I am new to recrute.'"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

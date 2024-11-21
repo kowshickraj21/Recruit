@@ -11,11 +11,11 @@ const DefaultAbout = () => {
   return (
     <div>
       <div className='w-full m-auto h-72 bg-black bg-opacity-90 text-white text-center'>
-        <h3 className='pt-10 pb-3 text-3xl font-semibold'>Find Your Next Great Job Opportunity</h3>
+        <h3 className='pt-10 pb-3 lg:text-3xl text-2xl font-semibold'>Find Your Next Great Job Opportunity</h3>
         <p className='text-xs opacity-55'>Subsribe to our NewsLetter to not miss any updates on new Job listings.</p>
-        <div className='mt-10 flex items-center justify-center'>
-            <input type="email" placeholder='Enter Your Email Address' className='h-12 w-96 rounded-sm pl-3 text-sm text-black'/>
-            <button className='w-36 h-12 rounded-sm bg-secondry text-white text-sm'>Subscribe</button>
+        <div className='mt-10 flex items-center justify-center w-11/12 md:w-auto m-auto'>
+            <input type="email" placeholder='Enter Your Email Address' className='h-12 w-96 rounded-sm pl-3 md:text-sm text-xs text-black'/>
+            <button className='w-36 h-12 rounded-sm bg-secondry text-white md:text-sm text-xs'>Subscribe</button>
         </div>
       </div>
       <div className='w-full h-auto bg-blue-50 bg-opacity-10'>
@@ -24,30 +24,30 @@ const DefaultAbout = () => {
               <Image src={freelancer1} alt="freelancer" fill className='object-cover'/>
             </div>
             <div className='md:w-1/3 w-full ml-5 md:text-4xl text-3xl font-bold pr-4'>
-                Worldwide Best Platform For Job Seekers 
-                <div className='flex flex-wrap mt-14 gap-y-10'>
-                  <div className='w-1/2 h-auto'>
+                <p className='text-2xl md:text-4xl text-center md:text-left px-5 md:px-0'>Worldwide Best Platform For Job Seekers</p>
+                <div className='flex flex-wrap mt-14 gap-y-10 px-2 md:px-0'>
+                  <div className='w-1/2 h-auto px-1 md:px-0'>
                     <div className='bg-orange-100 w-16 h-16 rounded-md mb-5 flex justify-center items-center'>
                       <IoBarChart  className='text-orange-300'/>
                     </div>
                     <h3 className='text-sm font-semibold mb-1'>Career Booster</h3>
                     <p className='text-xs font-medium pr-2'>Boost your career and your Job Opportunity by joining with us.</p>
                   </div>
-                  <div className='w-1/2 h-auto'>
+                  <div className='w-1/2 h-auto px-1 md:px-0'>
                   <div className='bg-blue-200 w-16 h-16 rounded-md mb-5 flex justify-center items-center'>
                   <IoIosPerson  className='text-blue-400'/>
                   </div>
                     <h3 className='text-sm font-semibold mb-1'>Profile Highlighters</h3>
                     <p className='text-xs font-medium'>Create and Highlight your Profile to stand out from others.</p>
                   </div>
-                  <div className='w-1/2 h-auto'>
+                  <div className='w-1/2 h-auto px-1 md:px-0'>
                   <div className='bg-purple-200 w-16 h-16 rounded-md mb-5 flex justify-center items-center'>
                     <FaRankingStar className='text-purple-400' />
                   </div>
                     <h3 className='text-sm font-semibold mb-1'>Easy Ranking</h3>
                     <p className='text-xs font-medium'>Rank your profile among others by reviews and work experience.</p>
                   </div>
-                  <div className='w-1/2 h-auto'>
+                  <div className='w-1/2 h-auto px-1 md:px-0'>
                   <div className='bg-green-100 w-16 h-16 rounded-md mb-5 flex justify-center items-center'>
                     <GiAchievement className='text-green-400' />
                   </div>
