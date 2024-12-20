@@ -2,7 +2,6 @@ import React from 'react'
 import Nav from './Nav';
 import DefaultAbout from './defaultAbout';
 import Footer from './Footer';
-import banner from '@/assets/banner.png';
 import Image from 'next/image';
 import { SiMusicbrainz } from "react-icons/si";
 import { GrPersonalComputer } from "react-icons/gr";
@@ -12,15 +11,20 @@ import { FaMoneyBillTrendUp } from "react-icons/fa6";
 const DefaultPage = () => {
   return (
     <div className='overflow-hidden'>
+      <main className="h-screen w-full bg-gradient-to-t from-[rgba(44,103,153,0.7)] to-[rgba(28,176,255,0.3)] bg-opacity-50">
       <Nav />
-      <main className="h-screen w-full">
-        <Image src={banner} alt='background' width={1500} height={10} className='-z-10 absolute w-full h-screen'/>
-      <h1 className="pt-52 ml-10 md:text-7xl text-5xl font-medium">Everything in <span className="text-secondry font-semibold">ONE</span> Place.</h1>
-      <h2 className="mt-5 ml-12 text-3xl">Freelance, Hire, Get Hired</h2>
-      <form className='hidden md:block'>
-        <input type="text" className="pl-5 ml-12 mt-10 rounded-xl border w-2/5 h-14" placeholder="Search for a Freelancer" />
-        <button type="submit" className="-ml-14 border rounded-xl w-32 h-14 bg-secondry text-white">Search</button>
-      </form>
+        {/* <Image src={banner} alt='background' width={1500} height={10} className='-z-10 absolute w-full h-screen'/> */}
+      <div className='w-full flex flex-row'>
+      <div className='w-1/2'>
+      <h1 className="pt-48 ml-10 md:text-8xl italic text-5xl font-semibold">Everything in <span className="text-secondry font-semibold">ONE</span> Place.</h1>
+      <h2 className="mt-5 ml-12 text-3xl font-medium">Freelance, Hire, Get Hired</h2>
+      {/* <form className='hidden md:block'>
+        <input type="text" className="pl-5 ml-12 mt-10 rounded-xl border w-1/3 h-14" placeholder="Search for a Freelancer" />
+        <button type="submit" className="-ml-14 border border-secondry rounded-xl w-32 h-14 bg-secondry text-white">Search</button>
+      </form> */}
+      <button className=" mt-10 ml-14 border border-secondry rounded-xl w-1/6 h-14 bg-secondry text-white">Get Started</button>
+      </div>
+      </div>
     </main>
      <div className='bg-blue-50 bg-opacity-30 pt-10'>
       <h1 className="text-center lg:text-4xl text-2xl font-semibold pt-10 pb-5">Browse Popular Jobs</h1>
