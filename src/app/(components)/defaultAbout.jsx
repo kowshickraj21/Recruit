@@ -10,12 +10,12 @@ import { GiAchievement } from "react-icons/gi";
 const DefaultAbout = () => {
   return (
     <div>
-      <div className='w-full m-auto h-72 bg-black bg-opacity-90 text-white text-center'>
+      <div className='w-full m-auto h-72 bg-slate-900 bg-opacity-85 text-white text-center'>
         <h3 className='pt-10 pb-3 lg:text-3xl text-2xl font-semibold'>Find Your Next Great Job Opportunity</h3>
         <p className='text-xs opacity-55'>Subsribe to our NewsLetter to not miss any updates on new Job listings.</p>
         <div className='mt-10 flex items-center justify-center w-11/12 md:w-auto m-auto'>
-            <input type="email" placeholder='Enter Your Email Address' className='h-12 w-96 rounded-sm pl-3 md:text-sm text-xs text-black'/>
-            <button className='w-36 h-12 rounded-sm bg-secondry text-white md:text-sm text-xs'>Subscribe</button>
+            <input type="email" placeholder='Enter Your Email Address' className='h-12 w-96 rounded-s-xl pl-3 md:text-sm text-xs text-black'/>
+            <button className='w-36 -ml-3 h-12 bg-secondry text-white md:text-sm text-xs rounded-2xl'>Subscribe</button>
         </div>
       </div>
       <div className='w-full h-auto bg-blue-50 bg-opacity-10'>

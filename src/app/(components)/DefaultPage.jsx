@@ -3,26 +3,35 @@ import Nav from './Nav';
 import DefaultAbout from './defaultAbout';
 import Footer from './Footer';
 import Image from 'next/image';
+import home from '@/assets/home1.jpg'
 import { SiMusicbrainz } from "react-icons/si";
 import { GrPersonalComputer } from "react-icons/gr";
 import { BsClipboard2Data } from "react-icons/bs";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
+import { FaPaperclip } from "react-icons/fa";
+
 
 const DefaultPage = () => {
   return (
     <div className='overflow-hidden'>
-      <main className="h-screen w-full bg-gradient-to-t from-[rgba(44,103,153,0.7)] to-[rgba(28,176,255,0.3)] bg-opacity-50">
+      <main className="h-screen w-full bg-gradient-to-t from-[rgba(44,103,153,0)] to-[rgba(28,176,255,0.3)] bg-opacity-50">
       <Nav />
-        {/* <Image src={banner} alt='background' width={1500} height={10} className='-z-10 absolute w-full h-screen'/> */}
-      <div className='w-full flex flex-row'>
-      <div className='w-1/2'>
-      <h1 className="pt-48 ml-10 md:text-8xl italic text-5xl font-semibold">Everything in <span className="text-secondry font-semibold">ONE</span> Place.</h1>
-      <h2 className="mt-5 ml-12 text-3xl font-medium">Freelance, Hire, Get Hired</h2>
-      {/* <form className='hidden md:block'>
-        <input type="text" className="pl-5 ml-12 mt-10 rounded-xl border w-1/3 h-14" placeholder="Search for a Freelancer" />
-        <button type="submit" className="-ml-14 border border-secondry rounded-xl w-32 h-14 bg-secondry text-white">Search</button>
-      </form> */}
+      <div className='w-full h-full flex flex-row'>
+      <div className='w-1/2 font-sans'>
+      <h1 className="mt-48 ml-10 md:text-7xl text-4xl font-bold">Everything in One Place.</h1>
+      <h2 className="mt-5 ml-12 text-2xl font-medium text-slate-600">Freelance, Hire, Get Hired</h2>
       <button className=" mt-10 ml-14 border border-secondry rounded-xl w-1/6 h-14 bg-secondry text-white">Get Started</button>
+      </div>
+      <div className='w-1/2 h-full mr-10 relative'>
+      <div className='absolute z-10 '>
+      <FaPaperclip className='text-7xl rotate-90 text-stone-600'/>
+      </div>
+      <div className="rounded-2xl h-3/4 mt-10 relative overflow-hidden w-full">
+      <Image src={home} alt="home" fill className='object-cover'/>
+      </div>
+      <div className='absolute z-10 right-0 bottom-32 '>
+      <FaPaperclip className='text-7xl rotate-90 text-black'/>
+      </div>
       </div>
       </div>
     </main>
