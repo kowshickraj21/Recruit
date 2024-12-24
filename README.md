@@ -1,21 +1,24 @@
-Recrute
+# Recrute
 Recrute is a comprehensive freelancing platform designed to connect freelancers with potential clients. The platform offers user registration, profiles, job listings, payment systems, and real-time messaging to create a seamless experience for both freelancers and clients.
 
-Features
-User Registration and Authentication: Secure sign-up and login functionality.
-User Profiles: Detailed profiles for freelancers and clients.
-Job Listings: Clients can post job listings, and freelancers can apply for jobs.
-Payment Systems: Secure payment integration for hassle-free transactions.
-Messaging: Real-time messaging between freelancers and clients.
-Job Application Tracking: Track the status of job applications.
-Technologies Used
-Frontend:
-Next.js
-Tailwind CSS
-Next Auth for authentication
-Socket.io for real-time communication
-Uploadthing for file uploads
-Backend:
+## Features:
+**User Registration and Authentication:** Secure sign-up and login functionality.  
+
+**User Profiles:** Detailed profiles for freelancers and clients.  
+
+**Freelancing Gigs:** Freelancers can create Gigs for the services they Provide. 
+
+**Messaging:** Real-time messaging between freelancers and clients.
+
+
+## Technologies Used:
+### Frontend:
+ - Next.js
+ - Tailwind CSS
+ - Next Auth 
+ - Socket.io
+ - Uploadthing
+### Backend:
 PostgreSQL for the database
 Drizzle ORM for database interactions
 Bcrypt for password hashing
