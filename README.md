@@ -1,68 +1,56 @@
-Recrute
-Recrute is a comprehensive freelancing platform designed to connect freelancers with potential clients. The platform offers user registration, profiles, job listings, payment systems, and real-time messaging to create a seamless experience for both freelancers and clients.
+# Recrute
+Recrute is a comprehensive freelancing platform designed to connect freelancers with potential clients. The platform offers user registration, profiles, Gig listings, and real-time messaging to create a seamless experience for both freelancers and clients.
 
-Features
-User Registration and Authentication: Secure sign-up and login functionality.
-User Profiles: Detailed profiles for freelancers and clients.
-Job Listings: Clients can post job listings, and freelancers can apply for jobs.
-Payment Systems: Secure payment integration for hassle-free transactions.
-Messaging: Real-time messaging between freelancers and clients.
-Job Application Tracking: Track the status of job applications.
-Technologies Used
-Frontend:
-Next.js
-Tailwind CSS
-Next Auth for authentication
-Socket.io for real-time communication
-Uploadthing for file uploads
-Backend:
-PostgreSQL for the database
-Drizzle ORM for database interactions
-Bcrypt for password hashing
-Getting Started
-Prerequisites
-Ensure you have the following installed on your system:
+## Features:
+**User Registration and Authentication:** Secure Oauth and Session Management.  
 
-Node.js
-PostgreSQL
-Docker
-Installation
-Clone the repository:
+**User Profiles:** Detailed profiles for freelancers and Job Seekers.  
 
-bash
-Copy code
+**Freelancing Gigs:** Freelancers can create Gigs for the services they Provide. 
+
+**Messaging:** Real-time messaging between freelancers and clients.
+
+
+## Technologies Used:
+### Frontend:
+ - Next.js
+ - Tailwind CSS
+ - Next Auth 
+ - Socket.io
+ - Uploadthing
+### Backend:
+ - PostgreSQL
+ - Drizzle ORM
+ - Bcrypt
+   
+## Installation   
+Clone the repository:   
+
+```
 git clone https://github.com/kowshickraj21/Recrute.git
+```
+Go into the Directory:
+```
 cd Recrute
+```
 Install dependencies:
-
-bash
-Copy code
+```
 npm install
-Set up environment variables:
+```
+### Set up environment variables:
 
-Create a .env file in the root directory and add your configuration:
+Create a .env.local file in the root directory and add your configuration:   
 
-env
-Copy code
-DATABASE_URL=your_database_url
-NEXTAUTH_URL=your_nextauth_url
-SOCKET_URL=your_socket_url
-UPLOADTHING_API_KEY=your_uploadthing_api_key
-Set up the database:
-
-Ensure PostgreSQL is running and create the necessary database:
-
-sql
-Copy code
-CREATE DATABASE recrute;
-Run the database migrations:
-
-bash
-Copy code
-npx drizzle-kit up
-Start the development server:
-
-bash
-Copy code
+.env.local
+```console
+GOOGLE_ID=your_google_authentication_id
+GOOGLE_SECRET=your_google_authentication_secret
+NEXT_PUBLIC_DATABASE_URL=your_database_url
+NEXTAUTH_SECRET=your_nextauth_secret
+UPLOADTHING_SECRET=your_uploadthing_secret
+UPLOADTHING_APP_ID=your_uploadthing_app_id
+```
+Start the Dev Server:
+```
 npm run dev
-The app will be running at http://localhost:3000.
+```

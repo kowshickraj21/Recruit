@@ -31,12 +31,12 @@ const Login = () => {
   return (
     <div className='flex flex-col items-center'>
     <form action={handleSubmit} className='flex flex-col items-center' >
-        <input type="email" name="email" id='email' required={true} placeholder='Email' className='border m-3 p-2 w-full'/>
-        <input type="text" name="password" id='password' required={true} placeholder='Password' className='border m-3 p-2 w-full'/>
+        <input type="email" name="email" id='email' required={true} placeholder='Email' className='border-b-2 m-3 p-2 w-full'/>
+        <input type="text" name="password" id='password' required={true} placeholder='Password' className='border-b-2 m-3 p-2 w-full'/>
         <button type="submit" className='border mt-5 rounded-md bg-secondry h-10 text-white w-full'>Log In</button>
         <p className='mt-5'>or</p>
-        <AuthButton />
       </form>
+      <AuthButton />
       
       <p className='my-5'>Don&#39;t have an account? <Link href='/signup' className='underline'>Sign Up</Link></p>
       </div>

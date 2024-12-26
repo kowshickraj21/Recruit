@@ -10,7 +10,6 @@ import ChatBox from '@/app/(components)/ChatBox'
 import { db } from '@/drizzle/index';
 import { user,gigs } from '@/drizzle/schema';
 import { eq } from 'drizzle-orm';
-import Reviews from './reviews';
 import Nav from '@/app/(components)/Nav';
 
 const page = async (props) => {
@@ -58,7 +57,6 @@ const page = async (props) => {
           </div>
 
             <OrderForm gigData={gig[0]} />
-            <Reviews author={author[0]}/>
         </div>
 
       </div>

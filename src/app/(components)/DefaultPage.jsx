@@ -9,6 +9,7 @@ import { GrPersonalComputer } from "react-icons/gr";
 import { BsClipboard2Data } from "react-icons/bs";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import { FaPaperclip } from "react-icons/fa";
+import Link from 'next/link';
 
 
 const DefaultPage = () => {
@@ -16,13 +17,13 @@ const DefaultPage = () => {
     <div className='overflow-hidden'>
       <main className="h-screen w-full bg-gradient-to-t from-[rgba(44,103,153,0)] to-[rgba(28,176,255,0.3)] bg-opacity-50">
       <Nav />
-      <div className='w-full h-full flex flex-row'>
-      <div className='w-1/2 font-sans'>
-      <h1 className="mt-48 ml-10 md:text-7xl text-4xl font-bold">Everything in One Place.</h1>
-      <h2 className="mt-5 ml-12 text-2xl font-medium text-slate-600">Freelance, Hire, Get Hired</h2>
-      <button className=" mt-10 ml-14 border border-secondry rounded-xl w-1/6 h-14 bg-secondry text-white">Get Started</button>
+      <div className='w-full h-full flex md:flex-row flex-col'>
+      <div className='md:w-1/2 font-sans'>
+      <h1 className="mt-48 md:ml-10 ml-4 md:text-7xl text-4xl font-bold">Everything in One Place.</h1>
+      <h2 className="mt-5 md:ml-12 ml-4 text-2xl font-medium text-slate-600">Freelance, Hire, Get Hired</h2>
+      <Link href='/login'><button className="mt-10 md:ml-14 ml-6 border border-secondry rounded-xl md:w-1/6 w-1/4 md:h-14 h-12 bg-secondry text-white">Get Started</button></Link>
       </div>
-      <div className='w-1/2 h-full mr-10 relative'>
+      <div className='md:block hidden w-1/2 h-full mr-10 relative'>
       <div className='absolute z-10 '>
       <FaPaperclip className='text-7xl rotate-90 text-stone-600'/>
       </div>
