@@ -1,5 +1,5 @@
-# Recrute
-Recrute is a comprehensive freelancing platform designed to connect freelancers with potential clients. The platform offers user registration, profiles, Gig listings, and real-time messaging to create a seamless experience for both freelancers and clients.
+# Recruit
+Recruit is a comprehensive freelancing platform designed to connect freelancers with potential clients. The platform offers user registration, profiles, Gig listings, and real-time messaging to create a seamless experience for both freelancers and clients.
 
 ## Features:
 **User Registration and Authentication:** Secure Oauth and Session Management.  
