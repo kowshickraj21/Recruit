@@ -1,10 +1,12 @@
 import React from 'react'
 import Link from 'next/link';
+import Image from 'next/image';
+import logo from '@/assets/Logo.png'
 
 const Nav = () => {
   return (
     <nav className='py-8 px-2 flex flex-row items-center justify-between h-20 bg-opacity-100 sticky top-0 bg-white z-0 mb-3'>
-        <Link href={"/"}>Logo</Link>
+         <Link href="/" className='ml-5 pr-5 w-22 object-contain overflow-hidden relative'><Image src={logo} alt="logo" width={100} height={50}/></Link>
       <ul className="hidden pl-20 list-none md:flex flex-row justify-evenly">
         <li className='px-10'>About</li>
         <li className='px-10'><Link href='/login'>Find Jobs</Link></li>

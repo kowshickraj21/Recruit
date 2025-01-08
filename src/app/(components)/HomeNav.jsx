@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { IoSearch,IoClose } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import Notification from './notification';
+import logo from '@/assets/Logo.png'
+import Image from 'next/image';
 
 const HomeNav = (props) => {
   const [open,setOpen] = useState(false);
@@ -12,7 +14,7 @@ const HomeNav = (props) => {
 
   return (
       <nav className='py-5 flex flex-row items-center justify-between bg-white sticky top-0 z-10'>
-        <Link href="/" className='ml-5 pr-5'>logo</Link>
+        <Link href="/" className='ml-5 pr-5 w-22 object-contain overflow-hidden relative'><Image src={logo} alt="logo" width={100} height={50}/></Link>
       <div className=" w-3/5 lg:flex hidden flex-row border rounded-md">
         <input type="text" className=' p-3 w-11/12 placeholder: text-innerText pl-7' placeholder='Search for Freelancers' value={searchTitle} onChange={(e) => setSearch(e.target.value)}/>
         <Link href={`/?s=${searchTitle}`} className='w-1/12 flex justify-center items-center border-l-2 bg-secondry text-white'><FaSearch /></Link>
